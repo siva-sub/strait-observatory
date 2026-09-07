@@ -167,3 +167,18 @@ Paper-code audit (outputs/strait-observatory-code-audit.md) found 5 blocking def
 5. **Package 0.2.1 published:** version skew fixed (__version__/pyproject/test now agree, test cross-checks both), dead odata import → explicit NotImplementedError, README quickstart rewritten against the real API (AISMatch, Zones.custom), architecture tree matches files. 36 tests pass. https://pypi.org/project/strait-observatory/0.2.1/
 
 Verification: 16-point sweep — every paper number now matches its artifact exactly (r=0.7269, R²=0.528, 4414, 70.0%, 18.0h, 21284, 34/13/0.62, +0.006/+0.137, 243/236, F1 0.613).
+
+## 2026-09-07 — LinkedIn launch package + next-project scout
+
+**Launch package (all in outputs/):**
+- linkedin-post.md — post v7 (252 words, all zero-slop gates zero, de-patterned: no scripted Socratic, no candor announcements, OPL glossed once), first comment, alt text, mechanics, share kit with profile plan
+- linkedin-card.png — diagram-design-system card (1200×632 @2x): real Singapore coastline (Natural Earth), 371 real detections, annual-mean chart, pipeline strip, WCAG ≥7.4:1; source HTML at outputs/.cardsrc/card.html
+- 7 GLM verification rounds on the card; every number on card+post traced to artifacts; sample-mixing and direction errors caught and fixed (wind claim, "loses to persistence")
+
+**Live map:** OG tags + preview card deployed to gh-pages (link shares now preview properly); all three links verified 200 with corrected numbers.
+
+**Next-project scout (outputs/sg-satellite-next-scout.md):**
+- sgtraffic teardown (2 free data.gov.sg APIs + AI vision + map)
+- 5 verified dataset IDs incl. CAAS air traffic (current to Jan 2026), SINGSTAT Changi air cargo, PSI 2014-2026, IIP
+- Sentinel-2 Changi coverage verified: 78 L2A scenes 2024, ~6 dates/month
+- Recommendation: A) Changi-from-orbit module (parked freighters → air cargo), B) live bunker-queue dashboard as demo layer, C) haze section in paper. OData quota-free, nothing blocked.
