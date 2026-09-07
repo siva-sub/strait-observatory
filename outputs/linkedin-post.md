@@ -7,19 +7,17 @@
 
 ## The post
 
-Geospatial data kept showing up in my feed. My only satellite exposure was the EDKP work at the BIS Innovation Hub, so I ran a side project: what can one person do with public data? No vendors, no procurement.
+Geospatial data kept showing up in my feed. My only satellite exposure was EDKP work at the BIS Innovation Hub, so I ran a side project on public data. No vendors, no procurement.
 
-I picked the Singapore Strait, and one question: do the ships say anything before the official print? 243 Sentinel-1 scenes, 2019 to 2026. A detection filter pulls vessel positions out of each image; monthly counts go against MPA's bunker sales, with VIIRS night-lights and AIS as overlays.
+I picked the Singapore Strait. 243 Sentinel-1 scenes, 2019 to 2026. A detection filter pulls vessel positions from each image, and the monthly counts go against Singapore's official bunker sales (ship fuel). Night-lights data and AIS ship-tracking as overlays.
 
-The first version failed. Total ship counts correlate with nothing.
+Counting every ship in the strait told me nothing. What worked was counting the parked ones. Ships wait at two anchorages just outside the port boundary (the OPL, Outer Port Limits), and the eastern one is where tankers load fuel. That single count tracks bunker sales at r = 0.73 over 57 months; the satellite alone explains 53% of the month-to-month movement. 610,000 AIS records say why: 70% of the anchored vessels are tankers, median stay 18 hours.
 
-What worked was one zone: the Eastern OPL anchorage, where tankers wait to fuel up. Its monthly count tracks bunker sales at r = 0.73 over 57 months, and Sentinel-1 alone explains 53% of the variance. 610,000 AIS records explain why: 70% of the anchored vessels are tankers, median stay 18 hours.
+My anchorage box sat on Batam for weeks, so I was counting land. A "mega-ship consolidation" trend I believed for a week was two detector versions on one chart. When I audited the finished paper against its code, five blocking errors turned up, one a number from the wrong sample. All of it is in the repo.
 
-I got things wrong. My anchorage box sat partly on Batam for weeks, so I counted land. A "mega-ship consolidation" trend I talked myself into was two detector versions mixed on one chart. The audit of my own paper found five blocking errors, one an R² from the wrong sample. All of it is in the repo.
+As a forecast this barely matches "same as last month." It's a same-week read of activity.
 
-It's a same-week read, not a forecast: it barely matches "same as last month."
-
-The whole pipeline is a pip install, strait-observatory. Live map, code and paper in the comments.
+The pipeline is a pip install, strait-observatory. Live map, code and paper in the comments.
 
 If you price or finance commodity flows, which number do you personally wait for?
 
