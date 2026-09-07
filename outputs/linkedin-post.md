@@ -17,7 +17,7 @@ What worked was one small zone, the Eastern OPL anchorage where tankers wait to 
 
 I got things wrong. My zone sat partly on Batam for weeks, so I was counting land. A "mega-ship consolidation" trend I talked myself into turned out to be two detector versions mixed on one chart. The audit of my own paper found five blocking errors, one an R² from the wrong sample.
 
-It's a same-week read, not a forecast. Run as a nowcast, it loses to "same as last month."
+It's a same-week read, not a forecast. Run as a nowcast, it barely matches "same as last month."
 
 The pipeline is on PyPI as strait-observatory. Live map, code, paper in the comments.
 
@@ -52,7 +52,7 @@ Dark navy card titled "Singapore's bunker sales, read from orbit." Left panel: m
 | 243 scenes, 2019–2026 | `perscene_counts.csv` |
 | 610,000 AIS records | Mendeley DOI 10.17632/r37vwd493d.1 |
 | r = +0.73, 53%, n = 57 | `perscene_join.csv` |
-| wind control holds | `era5_wind_monthly.csv` (partial r 0.696) |
+| wind control holds | `era5_wind_monthly.csv`: same-sample r 0.691 → partial 0.696 (n=54) |
 | 70% tankers, 18h median | `ais_historical_stats.json`, `ais_dwell_times.csv` |
 | loses to persistence | `nowcast_oos.json` (skill +0.006) |
 | five blocking errors | `outputs/strait-observatory-code-audit.md` |
