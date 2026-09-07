@@ -36,7 +36,7 @@ The paper reports the failed tests alongside the correlation.
 
 ## Alt text for the image
 
-Dark navy card titled "Singapore's bunker sales, read from orbit." Left panel: map of the Singapore Strait with the Singapore coastline and 371 blue dots marking vessels detected by satellite radar in one August 2026 pass, with a gold dashed box around the Eastern OPL anchorage. Right panel: line chart, 2019 to 2026, annual means z-scored, a gold line (radar anchorage counts) and a blue line (official MPA bunker sales) both rising together; callout reads "radar alone explains 53% of the variance". Footer: r = +0.73, n = 57 months, pip install strait-observatory.
+Dark navy card titled "Singapore's bunker sales, read from orbit." Left panel: map of the Singapore Strait with the Singapore coastline and 371 blue dots marking vessels detected by satellite radar in one August 2026 pass, with a gold dashed box around the Eastern OPL anchorage. Right panel: line chart, 2019 to 2026, annual means z-scored, a gold line (radar anchorage counts) and a blue line (official MPA bunker sales) both rising together; callout reads "radar alone explains 53% of the variance" with the note "ERA5 wind adds nothing to the fit". Footer: r = +0.73, n = 57 months, pip install strait-observatory.
 
 
 ## Mechanics
@@ -52,7 +52,7 @@ Dark navy card titled "Singapore's bunker sales, read from orbit." Left panel: m
 | 243 scenes, 2019–2026 | `perscene_counts.csv` |
 | 610,000 AIS records | Mendeley DOI 10.17632/r37vwd493d.1 |
 | r = +0.73, 53%, n = 57 | `perscene_join.csv` |
-| wind control holds | `era5_wind_monthly.csv`: same-sample r 0.691 → partial 0.696 (n=54) |
+| wind adds nothing | `era5_wind_monthly.csv`: ΔR² 0.017 (0.478→0.495, n=54), wind t=−1.31 n.s.; partial r 0.696 vs raw 0.691 |
 | 70% tankers, 18h median | `ais_historical_stats.json`, `ais_dwell_times.csv` |
 | loses to persistence | `nowcast_oos.json` (skill +0.006) |
 | five blocking errors | `outputs/strait-observatory-code-audit.md` |
