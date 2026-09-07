@@ -182,3 +182,27 @@ Verification: 16-point sweep — every paper number now matches its artifact exa
 - 5 verified dataset IDs incl. CAAS air traffic (current to Jan 2026), SINGSTAT Changi air cargo, PSI 2014-2026, IIP
 - Sentinel-2 Changi coverage verified: 78 L2A scenes 2024, ~6 dates/month
 - Recommendation: A) Changi-from-orbit module (parked freighters → air cargo), B) live bunker-queue dashboard as demo layer, C) haze section in paper. OData quota-free, nothing blocked.
+
+## 2026-09-07 — Changi from orbit: honest null in 4 iterations (autoresearch 33–36)
+
+**Verdict: 10m satellite data cannot read Changi's air cargo.** Four independent methods, one conclusion:
+
+| Method | n | vs air cargo |
+|---|---|---|
+| Zone occupancy (bright-blob fraction, 4 zones) | 71–75 | r = −0.14 to −0.24, null |
+| Stock brightness (monthly median B04) | 69–75 | r = −0.09 to −0.31, null/negative |
+| Pair-difference movement (Jung 2026 method, S2-adapted) | 21–30 | r = −0.43 to +0.05, null |
+| VIIRS night-lights (Changi window, 4 annual yrs) | 4 | decoupled (+37% lights vs −6% cargo) |
+
+**Why it fails (mechanism, not just statistics):**
+1. Resolution floor: aircraft detection needs 0.86m GSD (arXiv:2412.02137); Sentinel-2 is 10m
+2. Changi air cargo is mostly belly cargo in passenger aircraft — tonnage varies with load factor, not flight counts; parking geometry is invisible to it
+3. The strait result worked because ships are 100–300m and dwell for hours at zone-resolvable anchorages; aircraft fail on both size and dwell-mechanism
+
+**Infrastructure gained (reusable):**
+- data.gov.sg `datastore_search` works (package_show 403-only); resource IDs verified: CAAS monthly air traffic `d_744e62bfb1c524508bce0a64a2488243`, CAAS KPIs `d_3f23c3c7ce5f72eab16ed999e7271f2f`
+- SingStat tablebuilder API as fallback (M650031, 559 months to 2026-07)
+- Free S2 access path: STAC earth-search + sentinel-cogs windowed COG reads (no auth, no quota; 236 Changi scenes, 2.4GB)
+- S1 GRD over Changi: 448 scenes available; blocked only by Process API quota (403 as of today)
+
+**Literature:** Watching Trade from Space (arXiv:2604.15444, public replication package) read in full — the SAR pair-difference method transfers US↔EU (rank r 0.58–0.71); its dark-shipping angle is the natural extension for the strait project.
