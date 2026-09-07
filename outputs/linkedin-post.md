@@ -1,4 +1,4 @@
-# LinkedIn post — strait-observatory launch (v2)
+# LinkedIn post: strait-observatory launch (v2)
 
 **Image to attach:** `outputs/linkedin-card.png`
 **Links:** first comment only.
@@ -36,7 +36,7 @@ The paper reports the failed tests alongside the correlation.
 
 ## Alt text for the image
 
-Dark navy card titled "Singapore's bunker sales, read from orbit." Left panel: map of the Singapore Strait with the Singapore coastline and 371 blue dots marking vessels detected by satellite radar in one August 2026 pass, with a gold dashed box around the Eastern OPL anchorage. Right panel: line chart, 2019 to 2026, annual means z-scored, a gold line (radar anchorage counts) and a blue line (official MPA bunker sales) both rising together; callout reads "Sentinel-1 alone explains 53% of the variance". Footer: r = +0.73, n = 57 months, pip install strait-observatory.
+Dark navy card titled "Singapore's bunker sales, read from orbit." with subtitle "what one person can do with public data, no vendors". Left panel: map of the Singapore Strait with the Singapore coastline and 371 blue dots marking vessels detected by satellite radar in one August 2026 pass, with a gold dashed box around the Eastern OPL anchorage. Right panel: line chart, 2019 to 2026, annual means z-scored, a gold line (radar anchorage counts) and a blue line (official MPA bunker sales) both rising together; callout reads "Sentinel-1 alone explains 53% of the variance". Footer: r = +0.73, n = 57 months, pip install strait-observatory.
 
 
 ## Mechanics
