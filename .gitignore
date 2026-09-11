@@ -57,3 +57,17 @@ web/og-card.png
 web/assets/ais_sar_overlay.png
 web/assets/congestion_2024.png
 web/assets/perscene_join_chart.png
+
+# Generated package copies and local-only experiment records
+**/build/
+experiments/results/*
+!experiments/results/perscene_counts.csv
+!experiments/results/perscene_join.csv
+experiments/strait-bounded-run/results/extract-state.json
+experiments/strait-bounded-run/run.sh
+experiments/strait-update/run.sh
+experiments/strait-update/results/*
+!experiments/strait-update/results/paper-metrics.json
+!experiments/strait-update/results/reproduction.json
+!experiments/strait-update/results/physical-package-predictions.csv
+!experiments/strait-update/results/original-package-predictions.csv
