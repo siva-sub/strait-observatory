@@ -1,155 +1,87 @@
-# strait — satellite vessel detection & port activity monitoring
+# strait-observatory
 
-A Python package for detecting vessels from Sentinel-1 SAR imagery and
-measuring port activity from satellite data — any port, any time.
+Python tools for candidate-vessel detection from prepared Sentinel-1 imagery, zone aggregation, and exploratory economic comparisons.
 
-## The one thing
+**Source version: 0.3.0rc1, a release candidate.** This version has not been uploaded to PyPI. No remote downloader is bundled, and no accuracy or forecasting performance is guaranteed for a new port.
 
-```python
-import strait
-
-cutout = strait.Cutout(
-    module="sentinel1",
-    x=slice(103.4, 104.6),
-    y=slice(1.0, 1.6),
-    time=slice("2021-01", "2026-09"),
-)
-cutout.prepare()  # download + process scenes
-detections = cutout.detect()  # CFAR vessel detection
-monthly = cutout.aggregate(detections, zones={"eastern": (104.0, 1.24, 104.35, 1.40)})
-```
-
-That gives you monthly vessel counts per zone from free satellite radar.
-
-## Why this exists
-
-Ports publish trade statistics with a 2-4 week lag. Satellite radar
-sees ships at anchor immediately, day or night, cloud or clear.
-This package turns that satellite data into economic indicators.
-
-It was built for the Singapore Strait Observatory project, where
-radar-derived anchorage presence explains 48% of bunker sales variance
-(R²=0.478, detrended, weather-robust, validated against AIS).
-
-## Install
-
-```bash
-pip install strait-observatory
-```
-
-## What it does
-
-| Layer | What | Output |
-|---|---|---|
-| `Cutout` | Spatial/temporal subset + data source abstraction | xarray Dataset |
-| `detect()` | Vessel detection (trimmed CFAR) | GeoDataFrame of detections |
-| `aggregate()` | Zone × time aggregation | Monthly/weekly/daily counts |
-| `AIS` | Validation against live/historical AIS | Precision/recall metrics |
-| `Stats` | Join with official trade statistics | Correlation results |
-
-## Data sources
-
-| Source | What | Auth |
-|---|---|---|
-| Copernicus Sentinel-1 | SAR radar imagery | Free CDSE account |
-| AISStream.io | Live vessel AIS | Free API key |
-| AISHub.net | Community AIS | Free membership |
-| Mendeley (historical) | Port AIS datasets | Open download |
-| S2Coast-2023 | 10m coastline (land mask) | Zenodo, open |
-
-## Quick start
-
-```bash
-pip install strait-observatory
-export CDSE_USER=your@email
-export CDSE_PASSWORD=your_password
-```
+## Try the synthetic demo
 
 ```python
 import strait
 
-# 1. Define your area and time
-cutout = strait.Cutout(
-    module="sentinel1",
-    x=slice(103.4, 104.6),  # longitude
-    y=slice(1.0, 1.6),      # latitude
-    time=slice("2021-01", "2026-09"),
-)
-
-# 2. Download and process (first time takes ~1h for 5 years)
-cutout.prepare()
-
-# 3. Detect vessels
-detections = cutout.detect(method="trimmed_cfar")
-
-# 4. Define anchorage zones (or use built-in Singapore zones)
-zones = strait.Zones.singapore_strait()
-monthly = cutout.aggregate(detections, zones, freq="MS")
-
-# 5. Validate against AIS (optional; pass any list of {lat, lon} dicts,
-#    e.g. a live AISStream.io snapshot — see experiments/ais_capture.py)
-from strait import AISMatch
-match = AISMatch(threshold_m=500).load("ais_snapshot.json").match(detections)
-
-# Correlation with official statistics is not part of the package yet;
-# see experiments/econ_join.py in the observatory repo for the join.
+cutout = strait.Cutout(module="demo", time=slice("2021-01", "2021-03"))
+cutout.prepare(n_scenes=3)
+detections = cutout.detect(preset="balanced")
+counts = cutout.aggregate(detections, zones=strait.Zones.singapore_strait())
 ```
 
-## Architecture (inspired by [atlite](https://github.com/PyPSA/atlite))
+These are synthetic observations. `aggregate()` sums detections; it does not infer unobserved dates or compute a monthly mean per acquisition. Maintain a separate scene inventory when constructing a presence index.
 
-```
-strait/
-├── __init__.py          # exports Cutout, Zones, AISMatch, detect, aggregate
-├── cutout.py            # Cutout class (spatial/temporal abstraction)
-├── detect/
-│   └── __init__.py      # detect() dispatcher + presets + trimmed CFAR
-├── data/
-│   ├── __init__.py      # data source registry
-│   └── sentinel1.py     # local scene cache (CDSE download: not bundled yet)
-├── aggregate.py         # zone × time aggregation
-├── validate.py          # SAR-AIS matching (KD-tree, precision/recall)
-└── zones.py             # built-in zone definitions
+## Use a local cache
+
+`Cutout(module="sentinel1")` needs an already aligned **EPSG:4326** cache:
+
+```text
+cache/
+  scenes/s1_YYYYMMDD.tif  # calibrated linear sigma0, matching requested bounds/shape
+  land_mask.tif          # same grid; positive = excluded land
 ```
 
-## Built-in zones
+Pass its path to `Cutout(path="cache", x=..., y=..., time=..., shape=(rows, cols))`. Bounds, CRS, shape, full dates and time selection are checked. Missing data remain invalid. Malformed dates such as `s1_20160.tif`, different grids or a missing land mask raise explicit errors; they are not silently reinterpreted.
+
+For native projected TIFFs, use `strait.experimental.read_power_window()` with explicit acquisition, track, lineage and radiometry. It reads a bounded georeferenced window without silently assigning a different CRS. It does not infer a coastline mask.
+
+## Experimental model comparison
 
 ```python
-# Singapore Strait (from the observatory project)
-zones = strait.Zones.singapore_strait()
+from strait.experimental import expanding_compare
 
-# Define your own
-zones = strait.Zones.custom({
-    "my_anchorage": (104.0, 1.24, 104.35, 1.40),  # lon_min, lat_min, lon_max, lat_max
-    "port_area": (103.68, 1.20, 104.02, 1.34),
-})
+# panel is a numeric, monthly-indexed DataFrame with these three columns.
+# Missing months are inserted as NaN, never bridged by row-based lags.
+predictions = expanding_compare(
+    panel,
+    target="bunker",
+    features=["stock", "movement"],
+    train_start="2024-01-01",
+    min_train=12,
+    penalty=1.0,
+)
 ```
 
-## License
+Returns expanding-mean, previous-month, seasonal-12-month and fixed-ridge predictions on the same dates/folds. Scaling is fit on training rows only. Current-month predictors make this a **retrospective contemporaneous comparison**, not automatically a forecast or an operationally timely nowcast. Empty output means insufficient common data, not zero error.
 
-MIT
+`temporal_change()` measures mean absolute backscatter change on shared valid pixels. It requires matching grids/tracks/radiometry and actual source-product lineage by default. An explicit `allow_catalogue=True` override labels catalogue-only pairing **conditional**. Change is not vessel turnover.
 
-## Citation
+## AIS comparisons
 
-If you use this in research, cite the Singapore Strait Observatory:
-
-```
-@software{strait_observatory_2026,
-  title = {strait: satellite vessel detection and port activity monitoring},
-  author = {Sivasubramanian, S.},
-  year = {2026},
-  url = {https://github.com/siva-sub/strait}
-}
+```python
+matcher = strait.AISMatch(source="file").load("ais_snapshot.json")
+proximity = matcher.match(detections, threshold_m=500)
 ```
 
-## Documentation
+The legacy matcher computes bidirectional nearest-neighbor proximity fractions. The `precision` and `recall` keys name these fractions; without acquisition-time labels, one-to-one assignment and known receiver coverage they are **not validated detection precision/recall**. An unmatched point is not evidence that a ship disabled AIS. The class reads local JSON; it does not fetch live AIS or load arbitrary historical CSV schemas.
 
-Full documentation with use cases, API reference, data sources, interpretation guide, and economic context:
+## Singapore study
 
-| Page | What it covers |
-|---|---|
-| [Getting Started](docs/getting-started.md) | Install, first run, building a local cache |
-| [Data Sources](docs/data-sources.md) | Where to get Sentinel-1, AIS, land masks, official statistics |
-| [API Reference](docs/api-reference.md) | Every class, function, and parameter |
-| [Use Cases](docs/use-cases.md) | Port monitoring, congestion, dark vessels, bunkering, research |
-| [Interpreting Results](docs/interpretation.md) | How to read detections, correlations, and what they mean |
-| [Economic Relevance](docs/economic-relevance.md) | The Singapore case study and why this matters |
+The retained monthly count index correlates with bunker sales at r=0.727 across 57 months; this is an in-sample association. The bounded extension compared 22 common months and nine retrospectively inspected test months. Adding a SAR change feature reduced the original-index RMSE from 333.98 to 296.24 kt, but its uncertainty interval includes no improvement. No fresh-holdout gain or general port-level validity is established.
+
+The package evaluation API reproduces those saved predictions; it does not create new empirical evidence. See the [working paper](https://github.com/siva-sub/strait-observatory/blob/master/papers/singapore-strait-observatory.md) and local `experiments/strait-bounded-run/results/` artifacts.
+
+## Install and tests
+
+```bash
+# From the repository root, install this source candidate:
+python -m pip install -e './strait[dev]'
+python -m pytest strait/tests -q
+```
+
+A normal `pip install strait-observatory` installs the published version, not this unpublished candidate.
+
+## Sources
+
+- Repository: https://github.com/siva-sub/strait-observatory
+- Published package: https://pypi.org/project/strait-observatory/
+- Cutout abstraction inspiration, atlite: https://github.com/PyPSA/atlite
+- Jung (2026), *Watching Trade from Space*, arXiv:2604.15444v2: https://arxiv.org/abs/2604.15444v2 . The experimental change helper is not a replication of that paper.
+
+MIT licensed. API documentation: [documentation](docs/index.md).

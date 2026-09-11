@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "strait-observatory"
-version = "0.2.1"
+version = "0.3.0rc1"
 description = "Satellite vessel detection & port activity monitoring from Sentinel-1 SAR"
 readme = "README.md"
 license = {text = "MIT"}
@@ -37,6 +37,6 @@ viz = ["matplotlib>=3.7"]
 dev = ["pytest>=7.0", "pytest-cov", "ruff"]
 
 [project.urls]
-Homepage = "https://github.com/siva-sub/strait"
-Documentation = "https://strait.readthedocs.io"
-Repository = "https://github.com/siva-sub/strait"
+Homepage = "https://github.com/siva-sub/strait-observatory"
+Documentation = "https://github.com/siva-sub/strait-observatory/tree/master/strait/docs"
+Repository = "https://github.com/siva-sub/strait-observatory"

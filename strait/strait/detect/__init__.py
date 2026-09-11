@@ -1,12 +1,7 @@
-"""Vessel detection from Sentinel-1 SAR imagery.
+"""Local threshold detectors for candidate vessels in calibrated Sentinel-1 data.
 
-Two methods:
-- CLASSIC_CFAR: local mean + k*sigma (v3.1, standard baseline)
-- TRIMMED_CFAR: two-pass censored statistics (v4, from Zhou et al. 2026)
-
-Trimmed CFAR finds ~159% more vessels in dense scenes because it
-excludes bright targets from the background estimate, preventing
-ships from masking their neighbors.
+The package and retained experiment detector are not interchangeable versions.
+Presets retain historical parameter values, not portable accuracy guarantees.
 """
 import logging
 from typing import List, Optional, Tuple
@@ -29,15 +24,15 @@ TRIMMED_CFAR = "trimmed_cfar"
 PRESETS = {
     "balanced": {
         "k": 5.5, "window": 64, "min_pixels": 3,
-        "description": "Economic indicators — good precision/volume balance (72% AIS match, F1=0.69)",
+        "description": "Historical default; matching performance is dataset-specific and not guaranteed",
     },
     "precision": {
         "k": 6.5, "window": 32, "min_pixels": 7,
-        "description": "Dark vessel / enforcement — highest confidence (84% AIS match)",
+        "description": "Higher-threshold historical preset; not an enforcement or accuracy guarantee",
     },
     "recall": {
         "k": 4.0, "window": 64, "min_pixels": 3,
-        "description": "Comprehensive census — maximum detections (2008, 62% AIS match)",
+        "description": "Lower-threshold historical preset; not a census or measured recall guarantee",
     },
 }
 
@@ -94,11 +89,27 @@ def detect_vessels(
     """
     if method not in (CLASSIC_CFAR, TRIMMED_CFAR):
         raise ValueError(f"Unknown method '{method}'. Use '{CLASSIC_CFAR}' or '{TRIMMED_CFAR}'.")
+    if len(scenes) != len(dates):
+        raise ValueError("scenes and dates must have identical lengths")
+    if land_mask is None or np.shape(land_mask) != tuple(shape):
+        raise ValueError("land_mask shape must match the declared grid")
+    if any(np.shape(a) != tuple(shape) for a in scenes):
+        raise ValueError("every scene shape must match the declared grid")
+    if not np.isfinite(k) or k <= 0 or window < 1 or min_pixels < 1:
+        raise ValueError("positive finite detector parameters required")
     if bounds is None:
-        bounds = (0.0, 0.0, 1.0, 1.0)
+        raise ValueError("bounds are required for georeferencing")
+    try:
+        bounds = tuple(float(v) for v in bounds)
+    except (TypeError, ValueError) as e:
+        raise ValueError("bounds must be numeric WGS84 coordinates") from e
+    if len(bounds) != 4 or not np.isfinite(bounds).all() or not (
+        -180 <= bounds[0] < bounds[2] <= 180 and -90 <= bounds[1] < bounds[3] <= 90
+    ):
+        raise ValueError("bounds must be finite, ordered WGS84 coordinates")
 
     transform = from_bounds(*bounds, shape[1], shape[0])
-    sea = ~land_mask
+    sea = ~np.asarray(land_mask, dtype=bool)
     all_detections = []
 
     for scene, date in zip(scenes, dates):
@@ -121,12 +132,17 @@ def detect_vessels(
 
 
 def _to_db(scene: np.ndarray) -> np.ndarray:
-    return 10.0 * np.log10(np.clip(scene, 1e-6, None))
+    scene = np.asarray(scene, dtype=np.float32)
+    valid = np.isfinite(scene) & (scene > 0)
+    out = np.full(scene.shape, np.nan, dtype=np.float32)
+    np.log10(scene, out=out, where=valid)
+    out[valid] *= 10.0
+    return out
 
 
 def _classic_threshold(db, sea, k, window):
     """v3.1: local mean + k*sigma with absolute floor."""
-    valid = sea & (db > SEA_FLOOR_DB)
+    valid = sea & np.isfinite(db) & (db > SEA_FLOOR_DB)
     if valid.sum() < 100:
         return np.full_like(db, 999.0)
 
@@ -150,7 +166,7 @@ def _trimmed_threshold(db, sea, k, window):
       when background is perfectly uniform, e.g., synthetic test scenes)
     - Minimum background fraction (ensures enough pixels for stable stats)
     """
-    valid = sea & (db > SEA_FLOOR_DB)
+    valid = sea & np.isfinite(db) & (db > SEA_FLOOR_DB)
     if valid.sum() < 100:
         return np.full_like(db, 999.0)
 
@@ -183,12 +199,12 @@ def _trimmed_threshold(db, sea, k, window):
 
 def _label_and_count(db, sea, thr, transform, min_pixels, split, date):
     """Label connected components and extract vessel positions."""
-    cand = sea & (db > thr)
+    cand = sea & np.isfinite(db) & (db > thr)
     labeled, n = ndimage.label(cand)
     if n == 0:
         return []
 
-    lmax = ndimage.maximum_filter(db, size=7)
+    lmax = ndimage.maximum_filter(np.where(np.isfinite(db), db, -np.inf), size=7)
     detections = []
 
     for i, sl in enumerate(ndimage.find_objects(labeled), start=1):

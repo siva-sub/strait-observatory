@@ -1,20 +1,11 @@
-"""strait — satellite vessel detection & port activity monitoring.
+"""Local satellite candidate detection and exploratory port-activity comparisons.
 
-Detect vessels from Sentinel-1 SAR imagery. Measure port activity
-from space. Any port, any time, no ground infrastructure needed.
-
-Inspired by atlite (PyPSA): the Cutout abstraction makes a complex
-satellite-data pipeline usable in 5 lines of code.
-
-Use cases:
-- Port activity nowcasting (satellite → economic indicator)
-- Anchorage congestion monitoring (are anchorages full?)
-- Dark vessel detection (SAR detections without AIS match)
-- Bunkering activity estimation (anchored tanker counts)
-- Research: vessel presence time series for econometrics
+No general accuracy, ship-turnover, dark-vessel or forecasting guarantee.
+Experimental bounded raster and retrospective evaluation tools live in
+strait.experimental. Remote downloading is not bundled.
 """
 
-__version__ = "0.2.1"
+__version__ = "0.3.0rc1"
 __author__ = "Sivasubramanian S."
 
 from .cutout import Cutout

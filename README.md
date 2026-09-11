@@ -1,113 +1,79 @@
-# strait
+# Strait Observatory
 
-**Detect ships from satellite radar. Measure port activity from space. Any port, any time.**
+Strait Observatory uses public satellite imagery to study anchorage activity and Singapore's marine-fuel sales. It turns Sentinel-1 radar returns into candidate-vessel counts, groups them by area and month, and compares them with official statistics.
 
-A Python package (`pip install strait-observatory`) for detecting vessels from Sentinel-1 SAR
-and turning those detections into economic indicators. Works for any port with open-water
-anchorages. Validated on Singapore, where satellite-derived anchorage presence explains
-53% of bunker sales variance (R²=0.528, n=57; detrended r=+0.46, weather-robust, AIS-confirmed).
+- [Working paper: Satellite-Observed Anchorage Activity and Singapore Marine-Fuel Sales](papers/singapore-strait-observatory.md)
+- [Interactive map](https://siva-sub.github.io/strait-observatory/): historical monthly composites and candidate detections
+- [Python package and examples](strait/README.md)
+- [API documentation](strait/docs/api-reference.md)
 
-**Live demo (Singapore):** https://siva-sub.github.io/strait-observatory/
-**PyPI:** https://pypi.org/project/strait-observatory/
-**Docs:** [Full documentation](docs/index.md) — getting started, data sources, API, use cases, interpretation, economic context
+## From an image to an economic comparison
 
-## Headline result
+1. Read prepared Sentinel-1 radar images with their dates and geographic coordinates.
+2. Exclude land and invalid pixels, then identify bright components that could be vessels.
+3. Calculate candidate counts for the eastern Singapore Strait analysis area.
+4. Compare monthly presence with Singapore's official bunker sales, meaning sales of marine fuel.
 
-A single satellite radar explains **48% of Singapore's bunker sales** — no weather
-control needed, no trend-riding.
+AIS ship-position reports provide context and a separate observational comparison. Annual VIIRS night lights are available as contextual data; neither dataset establishes vessel-level detection accuracy or independently validates the monthly fuel-sales model.
 
-| Model | R² | What it means |
-|---|---|---|
-| bunker ~ eOPL (satellite only) | **0.528** | Radar alone explains 53% (n=57) |
-| bunker ~ eOPL + ERA5 wind | 0.495 | Weather adds almost nothing |
-| bunker ~ eOPL + wind + tanker arrivals | **0.700** | Practical nowcasting model |
+## Singapore findings
 
-| eOPL ships vs | Levels (n=57) | YoY detrended (n=45) | MA3-YoY (n=43) |
-|---|---|---|---|
-| **Bunker sales** | **r = +0.73** | +0.46 | **r = +0.68** |
-| Vessel arrivals | +0.64 | +0.37 | +0.46 |
-| Container throughput (TEU) | +0.57 | +0.33 | +0.49 |
-| **Tanker arrivals (mechanism)** | **+0.64** | **+0.53** | — |
+The historical study uses **240 accepted scenes across 57 months** between May 2019 and March 2026, with gaps. Counts and sales are associated in levels and year-over-year changes, with a weaker adjacent-month relationship.
 
-All p ≤ 0.027. The tanker-specific link is the mechanism: anchored tankers ARE
-bunkering operations. Wind control strengthens the signal (partial r = +0.70).
-The rolling-24-month correlation never goes negative (median +0.52).
+| Comparison with bunker sales | Pearson r | Eligible months or month pairs |
+|---|---:|---:|
+| Monthly levels | 0.727 | 57 |
+| Year-over-year log changes | 0.519 | 34 |
+| Adjacent-month log changes | 0.180 | 52 |
 
-The link is strongest where the mechanism is: the eastern anchorage (open water
-NE of Batam) tracks tanker arrivals at r = +0.53 detrended, while the western
-anchorage and port zones show no type link at all. Zone choice is the entire game.
+These transformations use different eligible samples. The coefficients describe associations; they do not identify individual fuel transactions or establish forecasting performance.
 
-Counts over the whole strait show no detrended signal — because total-area counts
-pick up wind-driven rough-sea false positives (r = +0.37 vs ERA5 wind). The eOPL
-zone doesn't (r = +0.02 vs extreme wind). This is why the economic signal is clean.
+A separate comparison adds radar backscatter change to the presence index. On **nine retrospectively inspected test months**, RMSE falls from **333.98 to 296.24 thousand tonnes**, or 11.3%. The paired uncertainty interval is **[−68.6, +23.2] thousand tonnes**, so the improvement remains uncertain. Exact source-product lineage for the paired rasters is incomplete. The [paper](papers/singapore-strait-observatory.md) reports the alternative count measures, baselines and limitations.
 
-## Pipeline
+Singapore is a case study. Applying the software to another port requires local measurement and validation work.
 
-```
-CDSE OData catalogue (862 overpass days, 2015–2026)
-  → Sentinel Hub Process API (per-scene VV γ0 crops, ~13 MB each)
-  → temporal-median land mask + trimmed CFAR (two-pass censored) + peak-splitting   [v4]
-  → anchorage-zone counts per scene (coverage-gated ≥ 0.80)
-  → monthly index (mean ± 95% CI) → join with official series → detrended econometrics
-  → MapLibre map + charts (web/)
-```
+## Use the package
 
-## How it went
-
-The detector is at v4 (trimmed CFAR). It got there the slow way. v0 silently dropped dense anchored
-queues, because a 600-pixel component cap discarded anything a queue merged into.
-Some scenes covered 36% of the area and others 93%, and for a while the monthly
-averages quietly mixed them. v2's background estimate was poisoned by a fill value,
-and one January reported 11,471 ships. At one point the land and sea flags were inverted, and the detector
-spent an afternoon hunting ships on Singapore Island. A `pkill` pattern that matched
-its own shell made three commands vanish mid-run before anyone knew why. A
-vision-model review of the maps caught the Batam zone error when the numbers would
-not. The v4 upgrade (trimmed CFAR from the SAR literature) came after the 50-year
-survey identified that ships in dense queues raise the local threshold and hide their
-neighbors; trimming them out finds 159% more. The S2Coast-2023 land mask from Zenodo
-replaced a temporal-median approximation that was drawing anchorage boxes over Batam
-Island. Each of the failures was caught by a two-day smoke test, an A/B diagnostic,
-or a fresh pair of eyes on an image. The full log, with the numbers each bug produced,
-is in [`experiments/README.md`](experiments/README.md) and
-[`CHANGELOG.md`](CHANGELOG.md).
-
-I also caught my own artifact. When the first historical data points (2016-2018,
-processed with the newer v4 detector) were added to the 2021+ data (processed with
-v3.1), the "mega-ship consolidation" trend I had reported in the scouting phase
-flipped direction. It was a detector-version mismatch, not a real economic signal.
-The calibrated analysis is in `experiments/README.md` iteration 21.
-
-## Repo layout
-
-- `web/` — interactive map (MapLibre, month slider, corrected zones) + result charts
-- `experiments/` — fetch, detect, aggregate, congestion, and detrend scripts, with results and QA images
-- `outputs/` — deep-research dossier + provenance (dataset IDs, citations, risk register)
-- `CHANGELOG.md`: the lab notebook, kept as it happened
-
-## Reproduce
+The published package is available through:
 
 ```bash
-cp .env.example .env      # CDSE credentials (free account)
-python3 -m venv .venv && .venv/bin/pip install numpy scipy rasterio requests pandas matplotlib
-.venv/bin/python experiments/fetch_s1_monthly.py        # or fetch_detect_perscene.py for full history
-.venv/bin/python experiments/fetch_official_stats.py
-.venv/bin/python experiments/detect_vessels_v3.py
-.venv/bin/python experiments/aggregate_perscene.py && .venv/bin/python experiments/detrend_analysis.py
+python -m pip install strait-observatory
 ```
 
-## Data & credits
+The source version is **0.3.0rc1**, an unpublished release candidate. Its experimental interfaces check raster compatibility, preserve calendar gaps and compare models on shared chronological folds. A regular PyPI install currently provides **0.2.1**, not these unreleased additions.
 
-Copernicus Sentinel-1 (ESA, via CDSE OData and Sentinel Hub — free and open)
-· VIIRS nighttime lights (EOG, Earth Observation Group)
-· ERA5 wind (Copernicus Climate Data Store)
-· S2Coast-2023 coastline (Zenodo, Duan et al. 2026)
-· MPA and SingStat via data.gov.sg (Singapore Open Data Licence)
-· Open-Meteo historical weather archive
-· basemap CARTO / ©OpenStreetMap contributors.
-Method lineage with citations is in `experiments/README.md`:
-Cerdeiro et al. 2020 (IMF) for index design; Grover et al. 2018 for land-mask doctrine;
-Kanjir et al. 2018 for the validation-first framing; El-Darymli et al. 2013 for CFAR
-as standard; Georgoulias et al. 2020 and Batista et al. 2025 for per-ship NO₂ plumes;
-Zhou et al. 2026 (arXiv 2509.22159) for the trimmed-CFAR optimization.
+For the source examples and synthetic demo, see [getting started](strait/docs/getting-started.md). The package expects prepared local data; it does not bundle remote acquisition.
 
-Personal portfolio project. Not affiliated with MPA, ESA, or any official body.
+## Reproduce the study tables
+
+The commands below reproduce the saved tables without raw imagery. A shallow clone also avoids downloading the older repository history.
+
+```bash
+git clone --depth 1 https://github.com/siva-sub/strait-observatory.git
+cd strait-observatory
+python -m pip install -e './strait[dev]'
+python -m pytest strait/tests -q
+python experiments/strait-update/paper_metrics.py
+python experiments/strait-update/reproduce.py
+```
+
+The analysis commands use saved data and feature tables without downloading imagery or starting cloud jobs. The original cropped-image archive is incomplete, so numerical reproduction of the tables is more complete than reproduction from source imagery.
+
+## Repository guide
+
+- `papers/`: the working paper and numerical provenance.
+- `strait/`: Python package, tests and documentation.
+- `web/`: the historical map explorer.
+- `experiments/`: analysis code, compact result tables and a reproduction guide.
+
+Personal research project; not affiliated with MPA or ESA.
+
+## Sources
+
+- Code: https://github.com/siva-sub/strait-observatory
+- Package: https://pypi.org/project/strait-observatory/
+- Sentinel-1 processing: https://documentation.dataspace.copernicus.eu/APIs/openEO/openeo_processing.html
+- Official bunker sales: https://data.gov.sg/datasets/d_4f5abbf4486bf8e52bbed3be56dde562/view
+- Historical AIS, DOI 10.17632/r37vwd493d.1: https://data.mendeley.com/datasets/r37vwd493d/1
+- VIIRS night lights: https://eogdata.mines.edu/products/vnl/
+- Jung (2026), *Watching Trade from Space*, arXiv:2604.15444v2: https://arxiv.org/abs/2604.15444v2

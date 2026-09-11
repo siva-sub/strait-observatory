@@ -1,0 +1,207 @@
+{
+  "notes": [
+    "Diagnostic post-test checks; no model selection based on these results.",
+    "Old index was designed on these data; no uncontaminated holdout.",
+    "AIS daily unique presence differs from instantaneous SAR scene counts. Not precision/recall."
+  ],
+  "original_index": {
+    "n_test": 9,
+    "months": [
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-10",
+      "2025-12",
+      "2026-01",
+      "2026-02",
+      "2026-03"
+    ],
+    "models": {
+      "expanding_mean": {
+        "rmse_kt": 443.7875587868275,
+        "mae_kt": 351.91788507173715
+      },
+      "persistence": {
+        "rmse_kt": 376.5679043973638,
+        "mae_kt": 309.54666666666645
+      },
+      "seasonal12": {
+        "rmse_kt": 444.61293653394017,
+        "mae_kt": 376.57111111111107
+      },
+      "stock": {
+        "rmse_kt": 333.9787854168367,
+        "mae_kt": 279.2191882718366
+      },
+      "stock_movement": {
+        "rmse_kt": 296.2426979363763,
+        "mae_kt": 248.54328074522346
+      },
+      "lag_stock": {
+        "rmse_kt": 355.0178092308959,
+        "mae_kt": 306.6398887322907
+      },
+      "lag_stock_movement": {
+        "rmse_kt": 316.5999545810456,
+        "mae_kt": 268.43148786240454
+      }
+    },
+    "added_movement_rmse_delta95_kt": [
+      -69.4237248055187,
+      23.19094541876484
+    ]
+  },
+  "compact_detector": {
+    "n_test": 9,
+    "months": [
+      "2025-05",
+      "2025-06",
+      "2025-07",
+      "2025-08",
+      "2025-10",
+      "2025-12",
+      "2026-01",
+      "2026-02",
+      "2026-03"
+    ],
+    "models": {
+      "expanding_mean": {
+        "rmse_kt": 443.7875587868275,
+        "mae_kt": 351.91788507173715
+      },
+      "persistence": {
+        "rmse_kt": 376.5679043973638,
+        "mae_kt": 309.54666666666645
+      },
+      "seasonal12": {
+        "rmse_kt": 444.61293653394017,
+        "mae_kt": 376.57111111111107
+      },
+      "stock": {
+        "rmse_kt": 436.8266121006576,
+        "mae_kt": 355.33939967205686
+      },
+      "stock_movement": {
+        "rmse_kt": 423.1457140819895,
+        "mae_kt": 351.00072802691284
+      },
+      "lag_stock": {
+        "rmse_kt": 448.76308672452717,
+        "mae_kt": 361.78009914895915
+      },
+      "lag_stock_movement": {
+        "rmse_kt": 430.61263618121205,
+        "mae_kt": 335.1383814382057
+      }
+    },
+    "added_movement_rmse_delta95_kt": [
+      -23.16621360534759,
+      15.94310994250884
+    ]
+  },
+  "combined_vs_comparators": {
+    "new_stock": {
+      "rmse_reduction_fraction": 0.12216866342578803,
+      "paired_error_block2_delta95_kt": [
+        -65.48201083932308,
+        -4.7591835345394315
+      ],
+      "paired_error_block3_delta95_kt": [
+        -61.89791999309461,
+        -4.716397812756497
+      ],
+      "paired_error_block4_delta95_kt": [
+        -59.69812740905115,
+        -4.74573028906093
+      ],
+      "months_lower_absolute_error": 8,
+      "leave_one_test_month_out_rmse_delta_range_kt": [
+        -53.084112474562744,
+        -19.946935780313993
+      ]
+    },
+    "persistence": {
+      "rmse_reduction_fraction": 0.10225990493295178,
+      "paired_error_block2_delta95_kt": [
+        -150.0847525070127,
+        59.09070065258945
+      ],
+      "paired_error_block3_delta95_kt": [
+        -131.9602820236684,
+        66.60186520634657
+      ],
+      "paired_error_block4_delta95_kt": [
+        -126.67339462284255,
+        70.40394396091523
+      ],
+      "months_lower_absolute_error": 5,
+      "leave_one_test_month_out_rmse_delta_range_kt": [
+        -60.57048264216593,
+        0.9395622698427246
+      ]
+    },
+    "original_stock": {
+      "rmse_reduction_fraction": -0.012220299774304388,
+      "paired_error_block2_delta95_kt": [
+        -61.6553140414999,
+        58.236572012915175
+      ],
+      "paired_error_block3_delta95_kt": [
+        -59.13155019659172,
+        31.712134848685366
+      ],
+      "paired_error_block4_delta95_kt": [
+        -61.74405927819272,
+        29.470936705992525
+      ],
+      "months_lower_absolute_error": 5,
+      "leave_one_test_month_out_rmse_delta_range_kt": [
+        -15.808069539296127,
+        22.40361076477791
+      ]
+    }
+  },
+  "original_plus_change": {
+    "rmse_reduction_fraction": 0.11298947456606323,
+    "paired_block3_delta95_kt": [
+      -68.59197078586192,
+      23.18133194992288
+    ],
+    "paired_vs_persistence_block3_delta95_kt": [
+      -160.3693478376385,
+      94.19773290048687
+    ],
+    "better_abs_error_months": 7
+  },
+  "ais_daily": {
+    "source_raw_rows": 609975,
+    "eastern_box_unique": 4414,
+    "anchored_reports": 42617,
+    "tanker_share_reports": 0.7004716427716638,
+    "accepted_oct_sar_scenes": 8,
+    "n_date_matches": 7,
+    "scope": "whole-day unique anchored vessels vs scene candidate counts; different spatial support due SAR land+nodata masks; descriptive only",
+    "compact_correlation": {
+      "n": 7,
+      "r": 0.33818107905964345,
+      "nominal_p_iid": 0.4581445301426644,
+      "rho": -0.12613124477737825,
+      "fisher95_iid": [
+        -0.55664778760232,
+        0.8697463775555018
+      ]
+    },
+    "physical_correlation": {
+      "n": 7,
+      "r": 0.2359737463875235,
+      "nominal_p_iid": 0.6104582063990911,
+      "rho": -0.03571428571428572,
+      "fisher95_iid": [
+        -0.628839276767504,
+        0.8398034086845348
+      ]
+    }
+  },
+  "fold_checks": "passed: future dates excluded, equal comparator folds, finite predictions"
+}

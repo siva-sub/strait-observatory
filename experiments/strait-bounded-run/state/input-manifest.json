@@ -1,0 +1,2027 @@
+[
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-01Z.tif",
+    "date": "2023-10-01",
+    "month": "2023-10",
+    "bytes": 119211341,
+    "mtime_ns": 1788856267807207454,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-06Z.tif",
+    "date": "2023-10-06",
+    "month": "2023-10",
+    "bytes": 257980257,
+    "mtime_ns": 1788856336633589099,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-07Z.tif",
+    "date": "2023-10-07",
+    "month": "2023-10",
+    "bytes": 308438479,
+    "mtime_ns": 1788856432301131474,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-13Z.tif",
+    "date": "2023-10-13",
+    "month": "2023-10",
+    "bytes": 118219500,
+    "mtime_ns": 1788856468763341387,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-18Z.tif",
+    "date": "2023-10-18",
+    "month": "2023-10",
+    "bytes": 290108721,
+    "mtime_ns": 1788856539217751345,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-19Z.tif",
+    "date": "2023-10-19",
+    "month": "2023-10",
+    "bytes": 308712070,
+    "mtime_ns": 1788856622337241568,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-25Z.tif",
+    "date": "2023-10-25",
+    "month": "2023-10",
+    "bytes": 118300518,
+    "mtime_ns": 1788856658522456927,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-30Z.tif",
+    "date": "2023-10-30",
+    "month": "2023-10",
+    "bytes": 291470383,
+    "mtime_ns": 1788856734157910458,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2023-10_openEO_2023-10-31Z.tif",
+    "date": "2023-10-31",
+    "month": "2023-10",
+    "bytes": 308296366,
+    "mtime_ns": 1788856840646555727,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-01_openEO_2024-01-05Z.tif",
+    "date": "2024-01-05",
+    "month": "2024-01",
+    "bytes": 119893407,
+    "mtime_ns": 1788835246903857137,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-01_openEO_2024-01-10Z.tif",
+    "date": "2024-01-10",
+    "month": "2024-01",
+    "bytes": 291567423,
+    "mtime_ns": 1788835336698849296,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-01_openEO_2024-01-11Z.tif",
+    "date": "2024-01-11",
+    "month": "2024-01",
+    "bytes": 308394505,
+    "mtime_ns": 1788835435182937849,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-01_openEO_2024-01-17Z.tif",
+    "date": "2024-01-17",
+    "month": "2024-01",
+    "bytes": 118839633,
+    "mtime_ns": 1788835471713341712,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-01_openEO_2024-01-22Z.tif",
+    "date": "2024-01-22",
+    "month": "2024-01",
+    "bytes": 289922603,
+    "mtime_ns": 1788835562565346318,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-01_openEO_2024-01-23Z.tif",
+    "date": "2024-01-23",
+    "month": "2024-01",
+    "bytes": 308343235,
+    "mtime_ns": 1788835638679188141,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-01_openEO_2024-01-29Z.tif",
+    "date": "2024-01-29",
+    "month": "2024-01",
+    "bytes": 120094770,
+    "mtime_ns": 1788835682510672979,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-03Z.tif",
+    "date": "2024-02-03",
+    "month": "2024-02",
+    "bytes": 289877204,
+    "mtime_ns": 1788836539212611563,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-04Z.tif",
+    "date": "2024-02-04",
+    "month": "2024-02",
+    "bytes": 308595649,
+    "mtime_ns": 1788836607045102636,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-10Z.tif",
+    "date": "2024-02-10",
+    "month": "2024-02",
+    "bytes": 118932080,
+    "mtime_ns": 1788836655151393816,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-15Z.tif",
+    "date": "2024-02-15",
+    "month": "2024-02",
+    "bytes": 291452815,
+    "mtime_ns": 1788836735177334320,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-16Z.tif",
+    "date": "2024-02-16",
+    "month": "2024-02",
+    "bytes": 308701375,
+    "mtime_ns": 1788836813111583706,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-22Z.tif",
+    "date": "2024-02-22",
+    "month": "2024-02",
+    "bytes": 103838825,
+    "mtime_ns": 1788836850959348310,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-27Z.tif",
+    "date": "2024-02-27",
+    "month": "2024-02",
+    "bytes": 291098949,
+    "mtime_ns": 1788836932150334396,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-02_openEO_2024-02-28Z.tif",
+    "date": "2024-02-28",
+    "month": "2024-02",
+    "bytes": 308714750,
+    "mtime_ns": 1788837010637129079,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-03_openEO_2024-03-05Z.tif",
+    "date": "2024-03-05",
+    "month": "2024-03",
+    "bytes": 118474189,
+    "mtime_ns": 1788838183047799256,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-03_openEO_2024-03-10Z.tif",
+    "date": "2024-03-10",
+    "month": "2024-03",
+    "bytes": 276644059,
+    "mtime_ns": 1788838277232523691,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-03_openEO_2024-03-11Z.tif",
+    "date": "2024-03-11",
+    "month": "2024-03",
+    "bytes": 308407291,
+    "mtime_ns": 1788838382384465788,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-03_openEO_2024-03-17Z.tif",
+    "date": "2024-03-17",
+    "month": "2024-03",
+    "bytes": 119384800,
+    "mtime_ns": 1788838413286039010,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-03_openEO_2024-03-22Z.tif",
+    "date": "2024-03-22",
+    "month": "2024-03",
+    "bytes": 273514975,
+    "mtime_ns": 1788838474246024786,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-03_openEO_2024-03-23Z.tif",
+    "date": "2024-03-23",
+    "month": "2024-03",
+    "bytes": 308216965,
+    "mtime_ns": 1788838576088792793,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-03_openEO_2024-03-29Z.tif",
+    "date": "2024-03-29",
+    "month": "2024-03",
+    "bytes": 118363992,
+    "mtime_ns": 1788838649453838061,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-03Z.tif",
+    "date": "2024-04-03",
+    "month": "2024-04",
+    "bytes": 289369938,
+    "mtime_ns": 1788839648100558441,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-04Z.tif",
+    "date": "2024-04-04",
+    "month": "2024-04",
+    "bytes": 308074194,
+    "mtime_ns": 1788839728096690488,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-10Z.tif",
+    "date": "2024-04-10",
+    "month": "2024-04",
+    "bytes": 116730146,
+    "mtime_ns": 1788839760894161120,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-15Z.tif",
+    "date": "2024-04-15",
+    "month": "2024-04",
+    "bytes": 291597132,
+    "mtime_ns": 1788839839482302410,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-16Z.tif",
+    "date": "2024-04-16",
+    "month": "2024-04",
+    "bytes": 308292311,
+    "mtime_ns": 1788839917022445082,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-22Z.tif",
+    "date": "2024-04-22",
+    "month": "2024-04",
+    "bytes": 117194259,
+    "mtime_ns": 1788839958121056615,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-27Z.tif",
+    "date": "2024-04-27",
+    "month": "2024-04",
+    "bytes": 289465697,
+    "mtime_ns": 1788840037008240444,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-04_openEO_2024-04-28Z.tif",
+    "date": "2024-04-28",
+    "month": "2024-04",
+    "bytes": 308134248,
+    "mtime_ns": 1788840113740403095,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-05_openEO_2024-05-04Z.tif",
+    "date": "2024-05-04",
+    "month": "2024-05",
+    "bytes": 118216147,
+    "mtime_ns": 1788841190661904414,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-05_openEO_2024-05-09Z.tif",
+    "date": "2024-05-09",
+    "month": "2024-05",
+    "bytes": 224149459,
+    "mtime_ns": 1788841239287221668,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-05_openEO_2024-05-16Z.tif",
+    "date": "2024-05-16",
+    "month": "2024-05",
+    "bytes": 118039899,
+    "mtime_ns": 1788841266813413567,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-05_openEO_2024-05-21Z.tif",
+    "date": "2024-05-21",
+    "month": "2024-05",
+    "bytes": 290212044,
+    "mtime_ns": 1788841346826017028,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-05_openEO_2024-05-28Z.tif",
+    "date": "2024-05-28",
+    "month": "2024-05",
+    "bytes": 118344816,
+    "mtime_ns": 1788841377431264275,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-06_openEO_2024-06-02Z.tif",
+    "date": "2024-06-02",
+    "month": "2024-06",
+    "bytes": 271713680,
+    "mtime_ns": 1788842428661636342,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-06_openEO_2024-06-09Z.tif",
+    "date": "2024-06-09",
+    "month": "2024-06",
+    "bytes": 117861186,
+    "mtime_ns": 1788842463558061227,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-06_openEO_2024-06-14Z.tif",
+    "date": "2024-06-14",
+    "month": "2024-06",
+    "bytes": 270507673,
+    "mtime_ns": 1788842519809748813,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-06_openEO_2024-06-21Z.tif",
+    "date": "2024-06-21",
+    "month": "2024-06",
+    "bytes": 118710785,
+    "mtime_ns": 1788842554493969176,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-06_openEO_2024-06-26Z.tif",
+    "date": "2024-06-26",
+    "month": "2024-06",
+    "bytes": 290112929,
+    "mtime_ns": 1788842618112382543,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-07_openEO_2024-07-03Z.tif",
+    "date": "2024-07-03",
+    "month": "2024-07",
+    "bytes": 118291374,
+    "mtime_ns": 1788843310228715058,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-07_openEO_2024-07-08Z.tif",
+    "date": "2024-07-08",
+    "month": "2024-07",
+    "bytes": 290226244,
+    "mtime_ns": 1788843427889983093,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-07_openEO_2024-07-15Z.tif",
+    "date": "2024-07-15",
+    "month": "2024-07",
+    "bytes": 119045554,
+    "mtime_ns": 1788843480937564538,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-07_openEO_2024-07-20Z.tif",
+    "date": "2024-07-20",
+    "month": "2024-07",
+    "bytes": 290663141,
+    "mtime_ns": 1788843554429378606,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-07_openEO_2024-07-27Z.tif",
+    "date": "2024-07-27",
+    "month": "2024-07",
+    "bytes": 117919518,
+    "mtime_ns": 1788843584970719543,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-08_openEO_2024-08-01Z.tif",
+    "date": "2024-08-01",
+    "month": "2024-08",
+    "bytes": 289204374,
+    "mtime_ns": 1788844353714606844,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-08_openEO_2024-08-08Z.tif",
+    "date": "2024-08-08",
+    "month": "2024-08",
+    "bytes": 118431470,
+    "mtime_ns": 1788844389474028635,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-08_openEO_2024-08-13Z.tif",
+    "date": "2024-08-13",
+    "month": "2024-08",
+    "bytes": 291103340,
+    "mtime_ns": 1788844498599318173,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-08_openEO_2024-08-14Z.tif",
+    "date": "2024-08-14",
+    "month": "2024-08",
+    "bytes": 307972921,
+    "mtime_ns": 1788844567298131588,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-08_openEO_2024-08-20Z.tif",
+    "date": "2024-08-20",
+    "month": "2024-08",
+    "bytes": 118975191,
+    "mtime_ns": 1788844599367061097,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-08_openEO_2024-08-25Z.tif",
+    "date": "2024-08-25",
+    "month": "2024-08",
+    "bytes": 289266685,
+    "mtime_ns": 1788844702297870968,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-08_openEO_2024-08-26Z.tif",
+    "date": "2024-08-26",
+    "month": "2024-08",
+    "bytes": 307692159,
+    "mtime_ns": 1788844780489879971,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-09_openEO_2024-09-06Z.tif",
+    "date": "2024-09-06",
+    "month": "2024-09",
+    "bytes": 290303627,
+    "mtime_ns": 1788845760664807609,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-09_openEO_2024-09-13Z.tif",
+    "date": "2024-09-13",
+    "month": "2024-09",
+    "bytes": 118803853,
+    "mtime_ns": 1788845831541439810,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-09_openEO_2024-09-18Z.tif",
+    "date": "2024-09-18",
+    "month": "2024-09",
+    "bytes": 274583661,
+    "mtime_ns": 1788845915166200714,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-09_openEO_2024-09-19Z.tif",
+    "date": "2024-09-19",
+    "month": "2024-09",
+    "bytes": 307777102,
+    "mtime_ns": 1788845994223932881,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-09_openEO_2024-09-25Z.tif",
+    "date": "2024-09-25",
+    "month": "2024-09",
+    "bytes": 118192104,
+    "mtime_ns": 1788846026092231122,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-09_openEO_2024-09-30Z.tif",
+    "date": "2024-09-30",
+    "month": "2024-09",
+    "bytes": 289329845,
+    "mtime_ns": 1788846115344074734,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-01Z.tif",
+    "date": "2024-10-01",
+    "month": "2024-10",
+    "bytes": 307868629,
+    "mtime_ns": 1788846906080199534,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-07Z.tif",
+    "date": "2024-10-07",
+    "month": "2024-10",
+    "bytes": 119719889,
+    "mtime_ns": 1788846953674720409,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-12Z.tif",
+    "date": "2024-10-12",
+    "month": "2024-10",
+    "bytes": 287441339,
+    "mtime_ns": 1788847020733450451,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-13Z.tif",
+    "date": "2024-10-13",
+    "month": "2024-10",
+    "bytes": 307738688,
+    "mtime_ns": 1788847080986102892,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-19Z.tif",
+    "date": "2024-10-19",
+    "month": "2024-10",
+    "bytes": 118252940,
+    "mtime_ns": 1788847114825468001,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-24Z.tif",
+    "date": "2024-10-24",
+    "month": "2024-10",
+    "bytes": 290189461,
+    "mtime_ns": 1788847189347269115,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-25Z.tif",
+    "date": "2024-10-25",
+    "month": "2024-10",
+    "bytes": 307600510,
+    "mtime_ns": 1788847276293199276,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-10_openEO_2024-10-31Z.tif",
+    "date": "2024-10-31",
+    "month": "2024-10",
+    "bytes": 117986000,
+    "mtime_ns": 1788847305376509460,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-11_openEO_2024-11-05Z.tif",
+    "date": "2024-11-05",
+    "month": "2024-11",
+    "bytes": 288893838,
+    "mtime_ns": 1788848100616880749,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-11_openEO_2024-11-06Z.tif",
+    "date": "2024-11-06",
+    "month": "2024-11",
+    "bytes": 307767504,
+    "mtime_ns": 1788848200952928573,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-11_openEO_2024-11-12Z.tif",
+    "date": "2024-11-12",
+    "month": "2024-11",
+    "bytes": 118310796,
+    "mtime_ns": 1788848240974346273,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-11_openEO_2024-11-17Z.tif",
+    "date": "2024-11-17",
+    "month": "2024-11",
+    "bytes": 289726164,
+    "mtime_ns": 1788848315454123240,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-11_openEO_2024-11-18Z.tif",
+    "date": "2024-11-18",
+    "month": "2024-11",
+    "bytes": 308878624,
+    "mtime_ns": 1788848384137839384,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-11_openEO_2024-11-24Z.tif",
+    "date": "2024-11-24",
+    "month": "2024-11",
+    "bytes": 117973799,
+    "mtime_ns": 1788848412421134198,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-11_openEO_2024-11-29Z.tif",
+    "date": "2024-11-29",
+    "month": "2024-11",
+    "bytes": 274632900,
+    "mtime_ns": 1788848487861920337,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-12_openEO_2024-12-06Z.tif",
+    "date": "2024-12-06",
+    "month": "2024-12",
+    "bytes": 118029801,
+    "mtime_ns": 1788941019566816007,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-12_openEO_2024-12-11Z.tif",
+    "date": "2024-12-11",
+    "month": "2024-12",
+    "bytes": 289827226,
+    "mtime_ns": 1788941128373006270,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-12_openEO_2024-12-12Z.tif",
+    "date": "2024-12-12",
+    "month": "2024-12",
+    "bytes": 309010765,
+    "mtime_ns": 1788941229337037064,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-12_openEO_2024-12-18Z.tif",
+    "date": "2024-12-18",
+    "month": "2024-12",
+    "bytes": 118974711,
+    "mtime_ns": 1788941269889434156,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-12_openEO_2024-12-23Z.tif",
+    "date": "2024-12-23",
+    "month": "2024-12",
+    "bytes": 290381420,
+    "mtime_ns": 1788941375247427220,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-12_openEO_2024-12-24Z.tif",
+    "date": "2024-12-24",
+    "month": "2024-12",
+    "bytes": 307397389,
+    "mtime_ns": 1788941498797532014,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2024-12_openEO_2024-12-30Z.tif",
+    "date": "2024-12-30",
+    "month": "2024-12",
+    "bytes": 90000000,
+    "mtime_ns": 1788941627037624656,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-04Z.tif",
+    "date": "2025-01-04",
+    "month": "2025-01",
+    "bytes": 290288112,
+    "mtime_ns": 1788942705073777144,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-05Z.tif",
+    "date": "2025-01-05",
+    "month": "2025-01",
+    "bytes": 308279089,
+    "mtime_ns": 1788942804625489391,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-11Z.tif",
+    "date": "2025-01-11",
+    "month": "2025-01",
+    "bytes": 118765106,
+    "mtime_ns": 1788942843659767927,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-16Z.tif",
+    "date": "2025-01-16",
+    "month": "2025-01",
+    "bytes": 291707176,
+    "mtime_ns": 1788942934509668656,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-17Z.tif",
+    "date": "2025-01-17",
+    "month": "2025-01",
+    "bytes": 308767842,
+    "mtime_ns": 1788943016719799112,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-23Z.tif",
+    "date": "2025-01-23",
+    "month": "2025-01",
+    "bytes": 116422161,
+    "mtime_ns": 1788943052030261917,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-28Z.tif",
+    "date": "2025-01-28",
+    "month": "2025-01",
+    "bytes": 291576797,
+    "mtime_ns": 1788943160089604900,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-01_openEO_2025-01-29Z.tif",
+    "date": "2025-01-29",
+    "month": "2025-01",
+    "bytes": 10000000,
+    "mtime_ns": 1788943170980734714,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-02_openEO_2025-02-04Z.tif",
+    "date": "2025-02-04",
+    "month": "2025-02",
+    "bytes": 119058124,
+    "mtime_ns": 1788851786872134756,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-02_openEO_2025-02-09Z.tif",
+    "date": "2025-02-09",
+    "month": "2025-02",
+    "bytes": 291091542,
+    "mtime_ns": 1788851862141894994,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-02_openEO_2025-02-10Z.tif",
+    "date": "2025-02-10",
+    "month": "2025-02",
+    "bytes": 308376896,
+    "mtime_ns": 1788851950555788035,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-02_openEO_2025-02-16Z.tif",
+    "date": "2025-02-16",
+    "month": "2025-02",
+    "bytes": 117972169,
+    "mtime_ns": 1788851980635091867,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-02_openEO_2025-02-21Z.tif",
+    "date": "2025-02-21",
+    "month": "2025-02",
+    "bytes": 290365053,
+    "mtime_ns": 1788852055942852568,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-02_openEO_2025-02-22Z.tif",
+    "date": "2025-02-22",
+    "month": "2025-02",
+    "bytes": 307606448,
+    "mtime_ns": 1788852147791780402,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-02_openEO_2025-02-28Z.tif",
+    "date": "2025-02-28",
+    "month": "2025-02",
+    "bytes": 118085188,
+    "mtime_ns": 1788852194150248725,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-05Z.tif",
+    "date": "2025-03-05",
+    "month": "2025-03",
+    "bytes": 289613670,
+    "mtime_ns": 1788853007305238904,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-06Z.tif",
+    "date": "2025-03-06",
+    "month": "2025-03",
+    "bytes": 306577466,
+    "mtime_ns": 1788853131994034198,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-12Z.tif",
+    "date": "2025-03-12",
+    "month": "2025-03",
+    "bytes": 118059074,
+    "mtime_ns": 1788853161903237316,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-17Z.tif",
+    "date": "2025-03-17",
+    "month": "2025-03",
+    "bytes": 289609176,
+    "mtime_ns": 1788853307727283953,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-18Z.tif",
+    "date": "2025-03-18",
+    "month": "2025-03",
+    "bytes": 308497544,
+    "mtime_ns": 1788853388610898632,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-24Z.tif",
+    "date": "2025-03-24",
+    "month": "2025-03",
+    "bytes": 118410753,
+    "mtime_ns": 1788853483852647710,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-29Z.tif",
+    "date": "2025-03-29",
+    "month": "2025-03",
+    "bytes": 274971688,
+    "mtime_ns": 1788853570202346766,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-03_openEO_2025-03-30Z.tif",
+    "date": "2025-03-30",
+    "month": "2025-03",
+    "bytes": 308321012,
+    "mtime_ns": 1788853716187563472,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-04_openEO_2025-04-05Z.tif",
+    "date": "2025-04-05",
+    "month": "2025-04",
+    "bytes": 118867387,
+    "mtime_ns": 1788854531294795240,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-04_openEO_2025-04-10Z.tif",
+    "date": "2025-04-10",
+    "month": "2025-04",
+    "bytes": 288955057,
+    "mtime_ns": 1788854613607546574,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-04_openEO_2025-04-11Z.tif",
+    "date": "2025-04-11",
+    "month": "2025-04",
+    "bytes": 307772106,
+    "mtime_ns": 1788854709743426435,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-04_openEO_2025-04-17Z.tif",
+    "date": "2025-04-17",
+    "month": "2025-04",
+    "bytes": 118515652,
+    "mtime_ns": 1788854737549681338,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-04_openEO_2025-04-22Z.tif",
+    "date": "2025-04-22",
+    "month": "2025-04",
+    "bytes": 255927877,
+    "mtime_ns": 1788854854370004161,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-04_openEO_2025-04-23Z.tif",
+    "date": "2025-04-23",
+    "month": "2025-04",
+    "bytes": 307494740,
+    "mtime_ns": 1788854949434376265,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-04_openEO_2025-04-29Z.tif",
+    "date": "2025-04-29",
+    "month": "2025-04",
+    "bytes": 118462795,
+    "mtime_ns": 1788854996242146417,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-05_openEO_2025-05-04Z.tif",
+    "date": "2025-05-04",
+    "month": "2025-05",
+    "bytes": 289872977,
+    "mtime_ns": 1788855728185621692,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-05_openEO_2025-05-05Z.tif",
+    "date": "2025-05-05",
+    "month": "2025-05",
+    "bytes": 307820449,
+    "mtime_ns": 1788855795537889004,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-05_openEO_2025-05-11Z.tif",
+    "date": "2025-05-11",
+    "month": "2025-05",
+    "bytes": 118801512,
+    "mtime_ns": 1788855837878067480,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-05_openEO_2025-05-16Z.tif",
+    "date": "2025-05-16",
+    "month": "2025-05",
+    "bytes": 288168937,
+    "mtime_ns": 1788855920049434182,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-05_openEO_2025-05-23Z.tif",
+    "date": "2025-05-23",
+    "month": "2025-05",
+    "bytes": 117476405,
+    "mtime_ns": 1788855951731582031,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-05_openEO_2025-05-28Z.tif",
+    "date": "2025-05-28",
+    "month": "2025-05",
+    "bytes": 288093801,
+    "mtime_ns": 1788856017353898449,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-06_openEO_2025-06-04Z.tif",
+    "date": "2025-06-04",
+    "month": "2025-06",
+    "bytes": 118722032,
+    "mtime_ns": 1788856708560756486,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-06_openEO_2025-06-09Z.tif",
+    "date": "2025-06-09",
+    "month": "2025-06",
+    "bytes": 289777999,
+    "mtime_ns": 1788856780394189735,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-06_openEO_2025-06-16Z.tif",
+    "date": "2025-06-16",
+    "month": "2025-06",
+    "bytes": 117569538,
+    "mtime_ns": 1788856813418390066,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-06_openEO_2025-06-21Z.tif",
+    "date": "2025-06-21",
+    "month": "2025-06",
+    "bytes": 288757318,
+    "mtime_ns": 1788856919405454235,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-06_openEO_2025-06-28Z.tif",
+    "date": "2025-06-28",
+    "month": "2025-06",
+    "bytes": 117955792,
+    "mtime_ns": 1788856953648885991,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-07_openEO_2025-07-03Z.tif",
+    "date": "2025-07-03",
+    "month": "2025-07",
+    "bytes": 255195344,
+    "mtime_ns": 1788857983249600533,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-07_openEO_2025-07-10Z.tif",
+    "date": "2025-07-10",
+    "month": "2025-07",
+    "bytes": 117133527,
+    "mtime_ns": 1788858012401829546,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-07_openEO_2025-07-15Z.tif",
+    "date": "2025-07-15",
+    "month": "2025-07",
+    "bytes": 288271839,
+    "mtime_ns": 1788858145769864095,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-07_openEO_2025-07-22Z.tif",
+    "date": "2025-07-22",
+    "month": "2025-07",
+    "bytes": 117448358,
+    "mtime_ns": 1788858195660246265,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-07_openEO_2025-07-27Z.tif",
+    "date": "2025-07-27",
+    "month": "2025-07",
+    "bytes": 258025333,
+    "mtime_ns": 1788858276975864408,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-08_openEO_2025-08-03Z.tif",
+    "date": "2025-08-03",
+    "month": "2025-08",
+    "bytes": 116773814,
+    "mtime_ns": 1788858983844818578,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-08_openEO_2025-08-08Z.tif",
+    "date": "2025-08-08",
+    "month": "2025-08",
+    "bytes": 289741413,
+    "mtime_ns": 1788859062893061414,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-08_openEO_2025-08-09Z.tif",
+    "date": "2025-08-09",
+    "month": "2025-08",
+    "bytes": 308239286,
+    "mtime_ns": 1788859149943333732,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-08_openEO_2025-08-15Z.tif",
+    "date": "2025-08-15",
+    "month": "2025-08",
+    "bytes": 118281430,
+    "mtime_ns": 1788859220789305349,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-08_openEO_2025-08-20Z.tif",
+    "date": "2025-08-20",
+    "month": "2025-08",
+    "bytes": 224231603,
+    "mtime_ns": 1788859281088093178,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-08_openEO_2025-08-21Z.tif",
+    "date": "2025-08-21",
+    "month": "2025-08",
+    "bytes": 273386154,
+    "mtime_ns": 1788859377518288563,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-08_openEO_2025-08-27Z.tif",
+    "date": "2025-08-27",
+    "month": "2025-08",
+    "bytes": 118116090,
+    "mtime_ns": 1788859434285959970,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-09_openEO_2025-09-01Z.tif",
+    "date": "2025-09-01",
+    "month": "2025-09",
+    "bytes": 287510703,
+    "mtime_ns": 1788944134009045558,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-09_openEO_2025-09-02Z.tif",
+    "date": "2025-09-02",
+    "month": "2025-09",
+    "bytes": 308202873,
+    "mtime_ns": 1788944246698993071,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-09_openEO_2025-09-08Z.tif",
+    "date": "2025-09-08",
+    "month": "2025-09",
+    "bytes": 118221578,
+    "mtime_ns": 1788944291658367535,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-09_openEO_2025-09-13Z.tif",
+    "date": "2025-09-13",
+    "month": "2025-09",
+    "bytes": 70000000,
+    "mtime_ns": 1788944323544632029,
+    "eligible": false,
+    "exclusion": "month_download_not_complete"
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-02Z.tif",
+    "date": "2025-10-02",
+    "month": "2025-10",
+    "bytes": 117503386,
+    "mtime_ns": 1788926434270781246,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-07Z.tif",
+    "date": "2025-10-07",
+    "month": "2025-10",
+    "bytes": 288923498,
+    "mtime_ns": 1788926508141400358,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-08Z.tif",
+    "date": "2025-10-08",
+    "month": "2025-10",
+    "bytes": 307576605,
+    "mtime_ns": 1788926614037080655,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-14Z.tif",
+    "date": "2025-10-14",
+    "month": "2025-10",
+    "bytes": 118869610,
+    "mtime_ns": 1788926648402615299,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-19Z.tif",
+    "date": "2025-10-19",
+    "month": "2025-10",
+    "bytes": 287829316,
+    "mtime_ns": 1788926739503990835,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-20Z.tif",
+    "date": "2025-10-20",
+    "month": "2025-10",
+    "bytes": 308378762,
+    "mtime_ns": 1788926809132470114,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-26Z.tif",
+    "date": "2025-10-26",
+    "month": "2025-10",
+    "bytes": 118162094,
+    "mtime_ns": 1788926852806351110,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-10_openEO_2025-10-31Z.tif",
+    "date": "2025-10-31",
+    "month": "2025-10",
+    "bytes": 288890175,
+    "mtime_ns": 1788926932358850462,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-11_openEO_2025-11-01Z.tif",
+    "date": "2025-11-01",
+    "month": "2025-11",
+    "bytes": 308295720,
+    "mtime_ns": 1788927793195904130,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-11_openEO_2025-11-07Z.tif",
+    "date": "2025-11-07",
+    "month": "2025-11",
+    "bytes": 118280899,
+    "mtime_ns": 1788927869749260424,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-11_openEO_2025-11-12Z.tif",
+    "date": "2025-11-12",
+    "month": "2025-11",
+    "bytes": 289778470,
+    "mtime_ns": 1788927959200148511,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-11_openEO_2025-11-13Z.tif",
+    "date": "2025-11-13",
+    "month": "2025-11",
+    "bytes": 308437710,
+    "mtime_ns": 1788928039507681590,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-11_openEO_2025-11-19Z.tif",
+    "date": "2025-11-19",
+    "month": "2025-11",
+    "bytes": 118846367,
+    "mtime_ns": 1788928086056875902,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-11_openEO_2025-11-24Z.tif",
+    "date": "2025-11-24",
+    "month": "2025-11",
+    "bytes": 288647313,
+    "mtime_ns": 1788928161168742054,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-11_openEO_2025-11-25Z.tif",
+    "date": "2025-11-25",
+    "month": "2025-11",
+    "bytes": 308377043,
+    "mtime_ns": 1788928262829730593,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-01Z.tif",
+    "date": "2025-12-01",
+    "month": "2025-12",
+    "bytes": 118601487,
+    "mtime_ns": 1788929008563021073,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-06Z.tif",
+    "date": "2025-12-06",
+    "month": "2025-12",
+    "bytes": 290638022,
+    "mtime_ns": 1788929081316321095,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-07Z.tif",
+    "date": "2025-12-07",
+    "month": "2025-12",
+    "bytes": 308880217,
+    "mtime_ns": 1788929166345993802,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-13Z.tif",
+    "date": "2025-12-13",
+    "month": "2025-12",
+    "bytes": 118942154,
+    "mtime_ns": 1788929202702374711,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-18Z.tif",
+    "date": "2025-12-18",
+    "month": "2025-12",
+    "bytes": 288971023,
+    "mtime_ns": 1788929274104266175,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-19Z.tif",
+    "date": "2025-12-19",
+    "month": "2025-12",
+    "bytes": 307974479,
+    "mtime_ns": 1788929362314598668,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-25Z.tif",
+    "date": "2025-12-25",
+    "month": "2025-12",
+    "bytes": 118908348,
+    "mtime_ns": 1788929397260188752,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-30Z.tif",
+    "date": "2025-12-30",
+    "month": "2025-12",
+    "bytes": 289564405,
+    "mtime_ns": 1788929461420353446,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2025-12_openEO_2025-12-31Z.tif",
+    "date": "2025-12-31",
+    "month": "2025-12",
+    "bytes": 307950959,
+    "mtime_ns": 1788929537952865608,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-01_openEO_2026-01-06Z.tif",
+    "date": "2026-01-06",
+    "month": "2026-01",
+    "bytes": 119242172,
+    "mtime_ns": 1788930209969693559,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-01_openEO_2026-01-11Z.tif",
+    "date": "2026-01-11",
+    "month": "2026-01",
+    "bytes": 290130365,
+    "mtime_ns": 1788930275283530099,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-01_openEO_2026-01-12Z.tif",
+    "date": "2026-01-12",
+    "month": "2026-01",
+    "bytes": 308952907,
+    "mtime_ns": 1788930358032885298,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-01_openEO_2026-01-18Z.tif",
+    "date": "2026-01-18",
+    "month": "2026-01",
+    "bytes": 119096388,
+    "mtime_ns": 1788930388406756875,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-01_openEO_2026-01-23Z.tif",
+    "date": "2026-01-23",
+    "month": "2026-01",
+    "bytes": 290501757,
+    "mtime_ns": 1788930459826819561,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-01_openEO_2026-01-24Z.tif",
+    "date": "2026-01-24",
+    "month": "2026-01",
+    "bytes": 308974651,
+    "mtime_ns": 1788930560339750203,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-01_openEO_2026-01-30Z.tif",
+    "date": "2026-01-30",
+    "month": "2026-01",
+    "bytes": 119744782,
+    "mtime_ns": 1788930613277924240,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-02_openEO_2026-02-04Z.tif",
+    "date": "2026-02-04",
+    "month": "2026-02",
+    "bytes": 290547984,
+    "mtime_ns": 1788931612927896526,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-02_openEO_2026-02-05Z.tif",
+    "date": "2026-02-05",
+    "month": "2026-02",
+    "bytes": 308409086,
+    "mtime_ns": 1788931694953225249,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-02_openEO_2026-02-11Z.tif",
+    "date": "2026-02-11",
+    "month": "2026-02",
+    "bytes": 119026738,
+    "mtime_ns": 1788931735966453231,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-02_openEO_2026-02-16Z.tif",
+    "date": "2026-02-16",
+    "month": "2026-02",
+    "bytes": 289059652,
+    "mtime_ns": 1788931817284015025,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-02_openEO_2026-02-17Z.tif",
+    "date": "2026-02-17",
+    "month": "2026-02",
+    "bytes": 308929372,
+    "mtime_ns": 1788931909623806995,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-02_openEO_2026-02-23Z.tif",
+    "date": "2026-02-23",
+    "month": "2026-02",
+    "bytes": 118981335,
+    "mtime_ns": 1788931963751336835,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-02_openEO_2026-02-28Z.tif",
+    "date": "2026-02-28",
+    "month": "2026-02",
+    "bytes": 288163034,
+    "mtime_ns": 1788932047656240613,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-03_openEO_2026-03-07Z.tif",
+    "date": "2026-03-07",
+    "month": "2026-03",
+    "bytes": 119561446,
+    "mtime_ns": 1788932905541173595,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-03_openEO_2026-03-12Z.tif",
+    "date": "2026-03-12",
+    "month": "2026-03",
+    "bytes": 237871192,
+    "mtime_ns": 1788933008041570912,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-03_openEO_2026-03-19Z.tif",
+    "date": "2026-03-19",
+    "month": "2026-03",
+    "bytes": 119201394,
+    "mtime_ns": 1788933061120466220,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-03_openEO_2026-03-24Z.tif",
+    "date": "2026-03-24",
+    "month": "2026-03",
+    "bytes": 290104172,
+    "mtime_ns": 1788933165238706049,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-03_openEO_2026-03-25Z.tif",
+    "date": "2026-03-25",
+    "month": "2026-03",
+    "bytes": 308535431,
+    "mtime_ns": 1788933260440497144,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-03_openEO_2026-03-31Z.tif",
+    "date": "2026-03-31",
+    "month": "2026-03",
+    "bytes": 118328852,
+    "mtime_ns": 1788933293325155849,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-04_openEO_2026-04-05Z.tif",
+    "date": "2026-04-05",
+    "month": "2026-04",
+    "bytes": 288548843,
+    "mtime_ns": 1788934164077132973,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-04_openEO_2026-04-12Z.tif",
+    "date": "2026-04-12",
+    "month": "2026-04",
+    "bytes": 117099926,
+    "mtime_ns": 1788934194972252886,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-04_openEO_2026-04-17Z.tif",
+    "date": "2026-04-17",
+    "month": "2026-04",
+    "bytes": 288381050,
+    "mtime_ns": 1788934292116663265,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-04_openEO_2026-04-18Z.tif",
+    "date": "2026-04-18",
+    "month": "2026-04",
+    "bytes": 308479448,
+    "mtime_ns": 1788934382896086447,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-04_openEO_2026-04-24Z.tif",
+    "date": "2026-04-24",
+    "month": "2026-04",
+    "bytes": 118948917,
+    "mtime_ns": 1788934418894263425,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-04_openEO_2026-04-29Z.tif",
+    "date": "2026-04-29",
+    "month": "2026-04",
+    "bytes": 288427241,
+    "mtime_ns": 1788934491665635134,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-04_openEO_2026-04-30Z.tif",
+    "date": "2026-04-30",
+    "month": "2026-04",
+    "bytes": 308034766,
+    "mtime_ns": 1788934582474121990,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-05_openEO_2026-05-06Z.tif",
+    "date": "2026-05-06",
+    "month": "2026-05",
+    "bytes": 118337389,
+    "mtime_ns": 1788935540754408940,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-05_openEO_2026-05-11Z.tif",
+    "date": "2026-05-11",
+    "month": "2026-05",
+    "bytes": 288025795,
+    "mtime_ns": 1788935631131073628,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-05_openEO_2026-05-18Z.tif",
+    "date": "2026-05-18",
+    "month": "2026-05",
+    "bytes": 118431317,
+    "mtime_ns": 1788935669088351387,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-05_openEO_2026-05-23Z.tif",
+    "date": "2026-05-23",
+    "month": "2026-05",
+    "bytes": 273157178,
+    "mtime_ns": 1788935746320914312,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-05_openEO_2026-05-30Z.tif",
+    "date": "2026-05-30",
+    "month": "2026-05",
+    "bytes": 118479209,
+    "mtime_ns": 1788935778208145931,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-04Z.tif",
+    "date": "2026-06-04",
+    "month": "2026-06",
+    "bytes": 289883956,
+    "mtime_ns": 1788936816293270261,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-05Z.tif",
+    "date": "2026-06-05",
+    "month": "2026-06",
+    "bytes": 227494093,
+    "mtime_ns": 1788936876753446912,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-11Z.tif",
+    "date": "2026-06-11",
+    "month": "2026-06",
+    "bytes": 118847520,
+    "mtime_ns": 1788936942552666545,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-16Z.tif",
+    "date": "2026-06-16",
+    "month": "2026-06",
+    "bytes": 287916187,
+    "mtime_ns": 1788937061727126343,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-17Z.tif",
+    "date": "2026-06-17",
+    "month": "2026-06",
+    "bytes": 227689289,
+    "mtime_ns": 1788937207746777748,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-23Z.tif",
+    "date": "2026-06-23",
+    "month": "2026-06",
+    "bytes": 118847083,
+    "mtime_ns": 1788937254826004594,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-24Z.tif",
+    "date": "2026-06-24",
+    "month": "2026-06",
+    "bytes": 291467294,
+    "mtime_ns": 1788937406475779853,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-28Z.tif",
+    "date": "2026-06-28",
+    "month": "2026-06",
+    "bytes": 287994318,
+    "mtime_ns": 1788937527560438595,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-06_openEO_2026-06-30Z.tif",
+    "date": "2026-06-30",
+    "month": "2026-06",
+    "bytes": 119247407,
+    "mtime_ns": 1788937569242671986,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-07_openEO_2026-07-05Z.tif",
+    "date": "2026-07-05",
+    "month": "2026-07",
+    "bytes": 288808753,
+    "mtime_ns": 1788938298995082355,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-07_openEO_2026-07-06Z.tif",
+    "date": "2026-07-06",
+    "month": "2026-07",
+    "bytes": 308134246,
+    "mtime_ns": 1788938393545679649,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-07_openEO_2026-07-12Z.tif",
+    "date": "2026-07-12",
+    "month": "2026-07",
+    "bytes": 119291622,
+    "mtime_ns": 1788938454026063346,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-07_openEO_2026-07-17Z.tif",
+    "date": "2026-07-17",
+    "month": "2026-07",
+    "bytes": 287783372,
+    "mtime_ns": 1788938571976814698,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-07_openEO_2026-07-18Z.tif",
+    "date": "2026-07-18",
+    "month": "2026-07",
+    "bytes": 308333830,
+    "mtime_ns": 1788938690198571157,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-07_openEO_2026-07-24Z.tif",
+    "date": "2026-07-24",
+    "month": "2026-07",
+    "bytes": 120582136,
+    "mtime_ns": 1788938735861864093,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-07_openEO_2026-07-29Z.tif",
+    "date": "2026-07-29",
+    "month": "2026-07",
+    "bytes": 286592044,
+    "mtime_ns": 1788938828831319030,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-08_openEO_2026-08-05Z.tif",
+    "date": "2026-08-05",
+    "month": "2026-08",
+    "bytes": 119706437,
+    "mtime_ns": 1788939579187823017,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-08_openEO_2026-08-10Z.tif",
+    "date": "2026-08-10",
+    "month": "2026-08",
+    "bytes": 286386345,
+    "mtime_ns": 1788939663728232640,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-08_openEO_2026-08-11Z.tif",
+    "date": "2026-08-11",
+    "month": "2026-08",
+    "bytes": 309146625,
+    "mtime_ns": 1788939769992766052,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-08_openEO_2026-08-17Z.tif",
+    "date": "2026-08-17",
+    "month": "2026-08",
+    "bytes": 119368711,
+    "mtime_ns": 1788939812714985493,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-08_openEO_2026-08-22Z.tif",
+    "date": "2026-08-22",
+    "month": "2026-08",
+    "bytes": 286168041,
+    "mtime_ns": 1788939897786429768,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-08_openEO_2026-08-23Z.tif",
+    "date": "2026-08-23",
+    "month": "2026-08",
+    "bytes": 307847362,
+    "mtime_ns": 1788939976892850537,
+    "eligible": true,
+    "exclusion": null
+  },
+  {
+    "path": "experiments/data/openeo_strait/2026-08_openEO_2026-08-29Z.tif",
+    "date": "2026-08-29",
+    "month": "2026-08",
+    "bytes": 118667478,
+    "mtime_ns": 1788940019512079893,
+    "eligible": true,
+    "exclusion": null
+  }
+]

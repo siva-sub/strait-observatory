@@ -67,7 +67,7 @@ class Cutout:
         self._dates: list = []
         self._land_mask: Optional[np.ndarray] = None
         self._detections: Optional[gpd.GeoDataFrame] = None
-        self._shape: Tuple[int, int] = (1500, 2400)  # (rows, cols)
+        self._shape: Tuple[int, int] = tuple(kwargs.get("shape", (1500, 2400)))  # (rows, cols)
 
         self.bounds = (
             float(x.start), float(y.start), float(x.stop), float(y.stop)
@@ -96,12 +96,14 @@ class Cutout:
         """Download and process satellite scenes.
 
         For module="demo": generates synthetic SAR scenes (no download).
-        For module="sentinel1": downloads from CDSE (requires credentials).
+        For module="sentinel1": loads an already aligned local cache; no downloader is bundled.
         """
         if self._scenes and not overwrite:
             logger.info("Using %d cached scenes", len(self._scenes))
             return self
 
+        if overwrite:
+            self._scenes, self._dates, self._detections = [], [], None
         if self.module == "demo":
             self._prepare_demo(n_scenes)
         elif self.module == "sentinel1":
@@ -134,11 +136,17 @@ class Cutout:
             raise RuntimeError("Call cutout.prepare() before detect()")
 
         from .detect import detect_vessels, PRESETS
+        if preset not in PRESETS:
+            raise ValueError(f"Unknown preset: {preset}")
+        allowed = {"k", "window", "min_pixels", "split_threshold"}
+        unknown = set(kwargs) - allowed
+        if unknown:
+            raise TypeError(f"Unknown detector parameters: {sorted(unknown)}")
 
         # Apply preset defaults, allow kwargs to override
         preset_params = PRESETS.get(preset, {}).copy()
         preset_params.pop("description", None)
-        preset_params.update({k_: v for k_, v in kwargs.items() if k_ in ("k", "window", "min_pixels")})
+        preset_params.update({k_: v for k_, v in kwargs.items() if k_ in allowed})
 
         self._detections = detect_vessels(
             scenes=self._scenes,
@@ -235,10 +243,7 @@ class Cutout:
         logger.info("Demo mode: %d synthetic scenes", len(self._scenes))
 
     def _prepare_sentinel1(self):
-        """Download and process real Sentinel-1 scenes.
-
-        Tries local cache first (faster, no credentials needed).
-        Falls back to CDSE download if no cache found.
+        """Load an aligned local cache. Remote download is not bundled.
         """
         from .data.sentinel1 import prepare_sentinel1
 

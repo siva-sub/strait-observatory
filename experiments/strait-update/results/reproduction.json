@@ -1,0 +1,20 @@
+[
+  {
+    "variant": "physical",
+    "n_test": 9,
+    "max_abs_error_kt": 9.094947017729282e-13,
+    "prediction_oracle": "PASS",
+    "original_artifact": "experiments/strait-bounded-run/results/oos-predictions.csv",
+    "rmse_base_kt": 385.10826876172797,
+    "rmse_augmented_kt": 338.0601062928885
+  },
+  {
+    "variant": "original",
+    "n_test": 9,
+    "max_abs_error_kt": 9.094947017729282e-13,
+    "prediction_oracle": "PASS",
+    "original_artifact": "experiments/strait-bounded-run/results/original_index-predictions.csv",
+    "rmse_base_kt": 333.9787854168367,
+    "rmse_augmented_kt": 296.2426979363763
+  }
+]

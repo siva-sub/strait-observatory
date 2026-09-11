@@ -1,15 +1,9 @@
-"""Sentinel-1 data access: local cache + CDSE (when available).
+"""Local Sentinel-1 cache access. Remote downloading is NOT bundled.
 
-Two access paths:
-1. Local cache: load pre-processed scenes from disk (no credentials needed)
-2. CDSE OData: download full products and process locally (uses download quota)
-3. CDSE Sentinel Hub: server-side processing (uses processing units, quota-limited)
-
-For local mode, the package expects a directory structure:
-    ~/.strait/  (or custom path)
-    ├── scenes/          # pre-processed .tif scenes (float32, linear sigma0)
-    ├── land_mask.tif    # S2Coast-2023 or similar boolean land mask
-    └── manifest.json    # scene metadata (dates, coverage)
+Caches contain scenes/s1_YYYYMMDD.tif (calibrated linear sigma0), a matching
+land_mask.tif, and optional manifest.json. Legacy Cutout caches must already
+share the requested EPSG:4326 grid. Use experimental.read_power_window for
+native projected imagery. NoData, dates and bounds are checked explicitly.
 """
 import os
 import json
@@ -25,89 +19,89 @@ from rasterio.transform import from_bounds as affine_from_bounds
 logger = logging.getLogger(__name__)
 
 
-def discover_local_scenes(cache_dir: str = "~/.strait") -> List[dict]:
-    """Find pre-processed scenes in the local cache.
+def _scene_date(path):
+    """Parse only documented date-bearing filenames; never truncate date IDs."""
+    import re
+    import pandas as pd
+    stem = Path(path).stem
+    m = re.search(r"(?:^s1_|^|openEO_)(\d{4}-\d{2}-\d{2}|\d{8}|\d{6})(?:Z|$)", stem)
+    if not m:
+        raise ValueError(f"Cannot resolve scene date from {Path(path).name}")
+    text = m.group(1)
+    fmt = "%Y-%m-%d" if "-" in text else "%Y%m%d" if len(text) == 8 else "%Y%m"
+    try:
+        return pd.to_datetime(text, format=fmt).strftime("%Y%m%d")
+    except ValueError as e:
+        raise ValueError(f"Invalid scene date in {Path(path).name}") from e
 
-    Returns list of dicts: {path, date, bounds, shape}
+
+def discover_local_scenes(cache_dir: str = "~/.strait") -> List[dict]:
+    """Inspect local TIFFs; preserve full dates and native grid metadata.
+
+    Invalid filenames or unreadable rasters raise rather than silently disappear.
     """
     cache = Path(cache_dir).expanduser()
-    scenes_dir = cache / "scenes"
-    if not scenes_dir.exists():
-        return []
-
     found = []
-    for path in sorted(globlib.glob(str(scenes_dir / "*.tif"))):
-        try:
-            with rasterio.open(path) as src:
-                b = src.bounds
-                found.append({
-                    "path": str(path),
-                    "date": Path(path).stem.replace("s1_", "")[:8],
-                    "bounds": (b.left, b.bottom, b.right, b.top),
-                    "shape": (src.height, src.width),
-                })
-        except Exception:
-            logger.warning("Could not read %s", path)
+    for path in sorted((cache / "scenes").glob("*.tif")):
+        date = _scene_date(path)
+        with rasterio.open(path) as src:
+            found.append({"path": str(path), "date": date,
+                          "bounds": tuple(src.bounds), "shape": src.shape,
+                          "crs": str(src.crs), "transform": list(src.transform)})
     return found
 
 
-def load_local_scenes(
-    cache_dir: str = "~/.strait",
-    bounds: Optional[Tuple[float, float, float, float]] = None,
-    shape: Tuple[int, int] = (1500, 2400),
-) -> Tuple[List[np.ndarray], List[str], np.ndarray]:
-    """Load scenes from local cache.
+def _check_grid(src, bounds, shape, label):
+    if src.crs != rasterio.crs.CRS.from_epsg(4326):
+        raise ValueError(f"{label}: legacy Cutout cache needs EPSG:4326; use experimental.read_power_window for native CRS data")
+    if src.transform.b != 0 or src.transform.d != 0 or src.transform.a <= 0 or src.transform.e >= 0:
+        raise ValueError(f"{label}: north-up axis-aligned grid required")
+    if tuple(src.shape) != tuple(shape):
+        raise ValueError(f"{label}: shape {src.shape} does not match requested {shape}")
+    if not np.allclose(tuple(src.bounds), tuple(bounds), rtol=0, atol=1e-9):
+        raise ValueError(f"{label}: bounds do not match the requested grid; no implicit warp is performed")
 
-    Parameters
-    ----------
-    cache_dir : str
-        Path to cache directory containing scenes/ and land_mask.tif
-    bounds : tuple
-        (lon_min, lat_min, lon_max, lat_max) — used for coordinate reference
-    shape : tuple
-        (rows, cols) expected scene shape
 
-    Returns
-    -------
-    scenes : list of ndarray
-    dates : list of str
-    land_mask : ndarray
+def load_local_scenes(cache_dir="~/.strait", bounds=None, shape=(1500, 2400), time_range=None):
+    """Load an already aligned EPSG:4326 scene cache with explicit land mask.
+
+    Unlike <=0.2.x, mismatched bounds/CRS/shape and ambiguous dates are errors.
+    There is no implicit reprojection. Full acquisition dates are retained and
+    optional time_range (inclusive; month strings include their whole month) is
+    applied. Zero/NoData/nonfinite power remains NaN, not a synthetic dark return.
     """
+    import pandas as pd
     cache = Path(cache_dir).expanduser()
-
-    # Load land mask
     mask_path = cache / "land_mask.tif"
-    if mask_path.exists():
-        with rasterio.open(mask_path) as src:
-            land_mask = src.read(1) > 0
-    else:
-        logger.warning("No land mask found at %s. Using all-sea mask.", mask_path)
-        land_mask = np.zeros(shape, dtype=bool)
-
-    # Load scenes
-    scenes_dir = cache / "scenes"
-    if not scenes_dir.exists():
-        raise FileNotFoundError(
-            f"No scenes directory at {scenes_dir}. "
-            f"Place .tif files (float32, linear sigma0) in {scenes_dir}/ "
-            f"or use module='demo' for synthetic data."
-        )
-
+    if not mask_path.exists():
+        raise FileNotFoundError(f"Required land mask is missing: {mask_path}")
+    items = discover_local_scenes(str(cache))
+    if not items:
+        raise FileNotFoundError(f"No valid scene TIFFs in {cache / 'scenes'}")
+    if bounds is None:
+        bounds = items[0]["bounds"]
+    if time_range is not None:
+        start, end = map(str, time_range)
+        if len(start) == 6 and start.isdigit(): start = start[:4] + "-" + start[4:]
+        if len(end) == 6 and end.isdigit(): end = end[:4] + "-" + end[4:]
+        lo = pd.Timestamp(start)
+        hi = pd.Period(end, freq="M").end_time if len(end) in (7, 6) else pd.Timestamp(end)
+        if lo > hi:
+            raise ValueError("time_range starts after its end")
+        items = [x for x in items if lo <= pd.Timestamp(x["date"]) <= hi]
+    if not items:
+        raise FileNotFoundError("No scenes within the requested time_range")
+    with rasterio.open(mask_path) as src:
+        _check_grid(src, bounds, shape, "land mask")
+        mask_data = src.read(1)
+        land_mask = (mask_data != 0) | ~np.isfinite(mask_data) | (src.read_masks(1) == 0)
     scenes, dates = [], []
-    for path in sorted(globlib.glob(str(scenes_dir / "*.tif"))):
-        try:
-            with rasterio.open(path) as src:
-                data = np.nan_to_num(src.read(1).astype(np.float32), nan=0.0)
-            scenes.append(data)
-            date = Path(path).stem.replace("s1_", "")[:6]  # YYYYMM
-            dates.append(date)
-        except Exception as e:
-            logger.warning("Skipping %s: %s", path, e)
-
-    if not scenes:
-        raise FileNotFoundError(f"No valid .tif scenes found in {scenes_dir}")
-
-    logger.info("Loaded %d scenes from %s", len(scenes), scenes_dir)
+    for item in items:
+        with rasterio.open(item["path"]) as src:
+            _check_grid(src, bounds, shape, Path(item["path"]).name)
+            a = src.read(1, masked=True).astype(np.float32).filled(np.nan)
+        a[~np.isfinite(a) | (a <= 0)] = np.nan
+        scenes.append(a); dates.append(item["date"])
     return scenes, dates, land_mask
 
 
@@ -196,13 +190,13 @@ def prepare_sentinel1(
 ) -> Tuple[List[np.ndarray], List[str], np.ndarray]:
     """Prepare Sentinel-1 scenes for a bounding box.
 
-    Tries local cache first, falls back to CDSE download.
+    Loads local cache only. Remote mode raises a clear NotImplementedError.
     """
     if use_local:
         try:
-            return load_local_scenes(str(cache_dir), bounds, shape)
+            return load_local_scenes(str(cache_dir or "~/.strait"), bounds, shape, time_range=time_range)
         except FileNotFoundError:
-            logger.info("No local cache found. Falling back to CDSE.")
+            logger.info("No suitable local cache found; remote download is not bundled.")
 
     # CDSE path (requires credentials and quota).
     # NOTE: the OData downloader is not bundled in v0.2.x — remote download is
@@ -210,7 +204,7 @@ def prepare_sentinel1(
     # crashing with an opaque ModuleNotFoundError.
     raise NotImplementedError(
         "No local scene cache found and the CDSE downloader is not bundled "
-        "in strait-observatory 0.2.x. Either (a) create a local cache with "
+        "in this release. Either (a) create a local cache with "
         "create_cache_from_directory(...) from pre-processed Sentinel-1 "
         "GeoTIFFs (see the observatory repo's experiments/ scripts for "
         "downloading via CDSE), or (b) wait for download support in a "

@@ -1,4 +1,4 @@
-"""SAR-AIS validation: match detections against AIS ground truth."""
+"""Legacy local-JSON SAR/AIS proximity comparison, not ground-truth validation."""
 import json
 import numpy as np
 import pandas as pd
@@ -7,12 +7,11 @@ from typing import Optional
 
 
 class AISMatch:
-    """Match SAR detections against AIS vessel positions.
+    """Nearest-neighbor proximity fractions from a caller-provided snapshot.
 
-    Supports multiple AIS sources:
-    - "aisstream": AISStream.io WebSocket (live)
-    - "aishub": AISHub.net REST API (live)
-    - "file": Load from JSON/CSV file (historical)
+    No live API client, time alignment, one-to-one assignment, or receiver-coverage
+    validation is implemented. Legacy precision/recall keys are NOT validated
+    detection accuracy. Supported loading is local JSON, not arbitrary CSV.
     """
 
     def __init__(self, source: str = "aisstream", api_key: str = "", **kwargs):

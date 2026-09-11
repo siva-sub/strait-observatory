@@ -1,32 +1,59 @@
-# secrets
+# Secrets and local environment
 .env
+.env.*
 *.token
 *.json.token
-
-# data & caches
-notes/discovery/*.json.tmp
+.venv/
 __pycache__/
 *.pyc
 .DS_Store
-.venv/
 
-# heavy data & runtime artifacts
-experiments/data/*.tif
-experiments/data/tmp/
-experiments/perscene_run*.log
+# Private research process and launch material
+notes/
+outputs/
+autoresearch*
+**/autoresearch*
+*.jsonl
+CHANGELOG.md
 .pi-subagents/
-*.pyc
-__pycache__/
-
-# repo hygiene: invalid v2 artifact + intermediate QA renders (failure log documents them)
-experiments/results/detections_v2.geojson
-experiments/results/qa3_*
-experiments/results/qa4_*
-experiments/results/qa5_*
-experiments/results/qa2_detections_202601.png
 .feynman/
-notes/alpha_login.log
-experiments/data/crops/
-strait/dist/
-strait/*.egg-info/
-experiments/data/ais_historical/
+
+# Raw imagery, archives and derived processing caches
+*.[tT][iI][fF]
+*.[tT][iI][fF][fF]
+*.nc
+*.npz
+*.zip
+*.zarr/
+experiments/data/*
+!experiments/data/era5_wind_monthly.csv
+!experiments/data/official/
+experiments/data/official/*
+!experiments/data/official/bunker.csv
+!experiments/data/official/arrivals.csv
+!experiments/data/official/container.csv
+experiments/strait-bounded-run/cache/
+
+# Private state; retain only the scientific inventory and catalogue
+experiments/strait-bounded-run/state/*
+!experiments/strait-bounded-run/state/input-manifest.json
+!experiments/strait-bounded-run/state/catalogue.json
+experiments/strait-update/state/
+experiments/strait-update/next_protocol.json
+
+# Build/test logs, temporary previews and old diagnostic figures
+*.log
+**/dist/
+**/*.egg-info/
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+htmlcov/
+papers/paper_render.html
+papers/fig*.png
+experiments/results/*.png
+experiments/results/detections_v2.geojson
+web/og-card.png
+web/assets/ais_sar_overlay.png
+web/assets/congestion_2024.png
+web/assets/perscene_join_chart.png

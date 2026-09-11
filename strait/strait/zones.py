@@ -10,10 +10,10 @@ class Zones:
 
     @staticmethod
     def singapore_strait() -> Dict[str, Tuple[float, float, float, float]]:
-        """Singapore Strait zones (from the observatory project, AIS-validated)."""
+        """Rectangular study zones, not official port boundaries or validated coverage."""
         return {
             "port_core": (103.68, 1.20, 104.02, 1.34),
-            "eastern_opl": (104.00, 1.24, 104.35, 1.40),  # tanker anchorage (77% tankers)
+            "eastern_opl": (104.00, 1.24, 104.35, 1.40),  # eastern analysis rectangle; includes land requiring masking
             "western_opl": (103.58, 1.10, 103.78, 1.32),
         }
 
