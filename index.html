@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Singapore Strait Observatory — vessels from Sentinel-1</title>
+<title>Strait Observatory | Singapore anchorage explorer</title>
+<meta name="description" content="Explore historical Sentinel-1 vessel candidates and a study of Singapore marine-fuel sales. Counts are observational measures, not validated forecasts.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Strait Observatory: ship counts and Singapore fuel sales">
+<meta property="og:description" content="A public-data study linking radar vessel candidates, anchorage counts and official marine-fuel sales. Historical map and working paper.">
+<meta property="og:url" content="https://siva-sub.github.io/strait-observatory/">
+<meta name="twitter:card" content="summary">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js" crossorigin="anonymous"></script>
-<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" rel="stylesheet">
 <style>
   :root { --bg:#0e1116; --panel:#161b22; --ink:#e6e8eb; --mut:#9aa4b2; --acc:#ff5d5d; --cy:#22d3ee; --yl:#fbbf24; --or:#fb923c; }
   * { box-sizing:border-box; margin:0; }
@@ -27,74 +33,66 @@
   .sliderrow { display:flex; gap:10px; align-items:center; margin-top:4px; }
   input[type=range] { flex:1; accent-color:var(--acc); }
   #monthlab { font-variant-numeric:tabular-nums; font-weight:700; color:var(--yl); }
+  a { color:#80c6ff; }
+  @media(max-width:760px){ main{flex-direction:column;overflow:auto;} #map{min-height:55vh;} aside{width:100%;overflow:visible;} #map[data-unavailable]{min-height:0;} body{height:auto;min-height:100vh;} }
   img.chart { width:100%; border-radius:6px; border:1px solid #26303c; margin-top:6px; }
   .legend span { display:inline-block; margin-right:10px; font-size:12px; color:var(--mut); }
   .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:4px; vertical-align:1px; }
   footer { padding:8px 16px; background:var(--panel); border-top:1px solid #232a33; color:var(--mut); font-size:11.5px; }
   .maplibregl-popup-content { background:#1b222c; color:var(--ink); border:1px solid #313d4c; font-size:12.5px; }
 </style>
-<meta property="og:title" content="Singapore Strait Observatory — live vessel map">
-<meta property="og:description" content="243 Sentinel-1 scenes, 2019–2026. Anchorage counts track bunker sales at r = +0.73. Free public data, no vendors.">
-<meta property="og:image" content="https://siva-sub.github.io/strait-observatory/og-card.png">
-<meta property="og:url" content="https://siva-sub.github.io/strait-observatory/">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <header>
-  <h1><b>Singapore Strait Observatory</b> — vessels seen by Sentinel-1 radar</h1>
-  <div class="sub">night &amp; cloud-proof SAR · free Copernicus data · honest results, including the negative ones</div>
+  <h1><b>Strait Observatory</b> | Singapore anchorage explorer</h1>
+  <div class="sub">Historical Sentinel-1 composites · candidate detections · marine-fuel sales study</div>
 </header>
 <main>
-  <div id="map"></div>
+  <div id="map" aria-label="Map of historical radar candidate detections"></div>
   <aside>
     <div class="card">
-      <h2>Scene explorer</h2>
+      <h2>Historical image explorer</h2>
       <div class="sliderrow">
-        <input id="mrange" type="range" min="0" max="11" value="11">
-        <div id="monthlab">—</div>
+        <input aria-label="Monthly composite" id="mrange" type="range" min="0" max="11" value="11">
+        <div id="monthlab">2026-08</div>
       </div>
       <div id="sceneinfo" style="color:var(--mut); font-size:12.5px; margin-top:6px;">Move the slider: each step is one monthly radar composite (Sep 2025 – Aug 2026).</div>
       <div class="legend" style="margin-top:8px;">
-        <span><i class="dot" style="background:var(--acc)"></i>vessel detection</span>
+        <span><i class="dot" style="background:var(--acc)"></i>vessel candidate</span>
         <span><i class="dot" style="background:var(--cy)"></i>port core</span>
-        <span><i class="dot" style="background:var(--yl)"></i>eastern OPL</span>
-        <span><i class="dot" style="background:var(--or)"></i>western OPL</span>
+        <span><i class="dot" style="background:var(--yl)"></i>eastern study area</span>
+        <span><i class="dot" style="background:var(--or)"></i>western study area</span>
       </div>
     </div>
     <div class="card">
-      <h2>Headline results (honest)</h2>
+      <h2>Singapore study</h2>
       <div class="kpi">
-        <div><div class="v">243</div><div class="k">radar scenes processed<br>2019–2026</div></div>
-        <div><div class="v pos">r=+0.73</div><div class="k">eOPL vs bunker sales<br>(Pearson, n=57)</div></div>
-        <div><div class="v pos">84%</div><div class="k">AIS-validated precision<br>(tuned preset)</div></div>
+        <div><div class="v">240</div><div class="k">accepted scenes<br>in the paired study sample</div></div>
+        <div><div class="v">57</div><div class="k">paired months<br>May 2019–Mar 2026</div></div>
+        <div><div class="v">0.727</div><div class="k">monthly-level correlation<br>counts versus fuel sales</div></div>
       </div>
-      <p style="margin-top:10px; color:var(--mut); font-size:12.5px;">
-        Satellite radar explains <b>R²=0.528</b> of bunker sales variance alone (n=57) — weather adds nothing, and the
-        signal survives detrending (YoY r=+0.46). The mechanism is confirmed by AIS: the eOPL is a tanker
-        anchorage (70% of anchored reports), with median tanker dwell of 18 hours per visit.
-        <span class="neg">Negative results reported:</span> OOS nowcast does not beat persistence; H1-2024
-        congestion was invisible in monthly counts; mega-ship consolidation was a detector artifact.</p>
+      <p style="margin-top:10px">The historical presence index is associated with official bunker sales, meaning marine-fuel sales. The correlation is 0.519 for year-over-year log changes (34 pairs) and 0.180 for adjacent-month log changes (52 pairs).</p>
+      <p style="margin-top:8px;color:var(--mut)">The comparisons use different eligible samples. The map shows separate monthly composites, not the individual overpasses used to construct that index. Bright returns are vessel candidates; their detection accuracy has not been established.</p>
     </div>
     <div class="card">
-      <h2>SAR × AIS overlay (live + historical)</h2>
-      <img class="chart" src="assets/ais_sar_overlay.png" alt="SAR and AIS overlay">
-      <div style="color:var(--mut); font-size:11.5px; margin-top:4px;">Red = SAR detections (Aug 2026). Triangles = live AIS vessels (Sep 2026). Gold labels = anchored tankers (bunkering ops). Yellow box = eOPL zone (AIS-validated tanker anchorage).</div>
+      <h2>Adding backscatter change</h2>
+      <p>A retrospective comparison on nine inspected test months reduced RMSE from 333.98 to 296.24 thousand tonnes when image change was added to the presence index.</p>
+      <p style="margin-top:8px;color:var(--mut)">The paired uncertainty interval is [−68.6, +23.2] thousand tonnes, including no improvement. Source-product lineage remains incomplete. This is a feature for further testing, not an established forecasting advantage.</p>
     </div>
     <div class="card">
-      <h2>Index vs official container throughput</h2>
-      <img class="chart" src="assets/perscene_join_chart.png" alt="satellite index vs container TEU">
-      <div style="color:var(--mut); font-size:11.5px; margin-top:4px;">Monthly mean ±95% CI per overpass days (2015–2026) vs MPA container TEU.</div>
+      <h2>Reading the map</h2>
+      <p>The slider covers September 2025–August 2026. Each dot is a candidate return in a monthly radar composite. These are historical images, not live vessel positions. The rectangles are project-defined analysis areas, not official port boundaries.</p>
+      <p style="margin-top:8px;color:var(--mut)">AIS ship-position reports provide a separate comparison. Seven matched daily totals were insufficient to establish detection accuracy. Annual VIIRS night lights are contextual data, not inputs to the monthly estimation model.</p>
     </div>
     <div class="card">
-      <h2>H1-2024 congestion case study</h2>
-      <img class="chart" src="assets/congestion_2024.png" alt="congestion case study">
-      <div style="color:var(--mut); font-size:11.5px; margin-top:4px;">Anchorage presence vs official container-vessel arrivals; shaded window = MPA-confirmed congestion period.</div>
+      <h2>Methods and data</h2>
+      <p><a href="https://github.com/siva-sub/strait-observatory/blob/master/papers/singapore-strait-observatory.md">Working paper</a> · <a href="https://github.com/siva-sub/strait-observatory">Code and documentation</a> · <a href="https://pypi.org/project/strait-observatory/">Python package</a></p>
+      <p style="margin-top:8px"><a href="https://data.gov.sg/datasets/d_4f5abbf4486bf8e52bbed3be56dde562/view">Official bunker-sales series</a> · <a href="https://data.mendeley.com/datasets/r37vwd493d/1">Historical AIS source</a></p>
     </div>
   </aside>
 </main>
 <footer>
-  Data: Copernicus Sentinel-1 (ESA/CDSE) · official statistics: MPA &amp; SingStat via data.gov.sg · basemap: CARTO / ©OpenStreetMap contributors ·
-  methods &amp; code: github (sg-strait-observatory) — CFAR detector v3.1, per-scene pipeline, detrended analysis.
+  Sentinel-1: ESA/Copernicus Data Space Ecosystem · official statistics: data.gov.sg · basemap: CARTO and OpenStreetMap contributors · personal research project
 </footer>
 <script>
 window.addEventListener('error', function(e){
@@ -118,10 +116,17 @@ map = new maplibregl.Map({
     layers:[{ id:"basemap", type:"raster", source:"carto" }] },
   center:[103.95,1.24], zoom:9.6, attributionControl:true
 });
-} catch (e) { var d0=document.getElementById('dbg'); if(!d0){d0=document.createElement('div');d0.id='dbg';document.body.appendChild(d0);} d0.textContent='CTORERR: '+(e&&e.message||e); }
+} catch (e) {
+  window.__mapStartupError = String(e && e.message || e);
+  document.getElementById("map").textContent = "This browser could not start the map. The study summary and source links are still available.";
+  document.getElementById("map").style.padding = "24px";
+  document.getElementById("map").dataset.unavailable = "true";
+  document.getElementById("mrange").disabled = true;
+  document.getElementById("sceneinfo").textContent = "Map unavailable in this browser. The historical composites cover September 2025–August 2026.";
+}
 if (map) map.addControl(new maplibregl.NavigationControl({visualizePitch:false}));
 
-const popup = new maplibregl.Popup({offset:8, closeButton:false});
+const popup = map ? new maplibregl.Popup({offset:8, closeButton:false}) : null;
 let det = { features: [] };
 window.__err = "none";
 
@@ -129,7 +134,7 @@ if (map) map.on("load", async () => {
  if (!map) return;
  try {
   window.__map = map;
-  // zone rectangles (corrected, v3)
+  // Project-defined analysis rectangles
   const zf = Object.entries(ZONES).map(([n,z],i)=>({ type:"Feature",
     geometry:{ type:"LineString", coordinates:[...z.coords, z.coords[0]] },
     properties:{ name:n, color:z.color } }));
@@ -162,12 +167,12 @@ if (map) map.on("load", async () => {
 function showMonth(i){
   const m = MONTHS[i];
   document.getElementById("monthlab").textContent = `${m.slice(0,4)}-${m.slice(4)}`;
-  if (map.getLayer("dets-heat")) {
+  if (map && map.getLayer("dets-heat")) {
     map.setFilter("dets-heat", ["==","date",m]);
     map.setFilter("dets-dot",  ["==","date",m]);
     const n = det.features.filter(f=>f.properties.date===m).length;
     document.getElementById("sceneinfo").textContent =
-      `${n} vessels detected in this monthly composite · CFAR v3.1 on Sentinel-1 VV (γ₀, orthorectified).`;
+      `${n} candidate returns in this monthly composite · Sentinel-1 VV · historical detector v3.1.`;
   }
 }
 document.getElementById("mrange").addEventListener("input", e => showMonth(+e.target.value));
